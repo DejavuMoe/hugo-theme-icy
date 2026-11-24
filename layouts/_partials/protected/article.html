@@ -24,7 +24,7 @@
 {{- range slice "article" "prose" "protected" }}{{ partial "assets/use.html" (dict "page" $ "feature" .) }}{{ end }}
 {{- /* Render the content now: shortcodes and render hooks register the
      features the unlocked content needs, so their assets are on the page. */}}
-{{- $content := partial "func/content.html" . }}
+{{- $content := .Content | string }}
 {{- if strings.Contains $content "footnote-ref" }}{{ partial "assets/use.html" (dict "page" . "feature" "footnotes") }}{{ end }}
 {{- /* A deploy reminder, so never in `hugo server` (where output is not
      deployed and --panicOnWarning must keep working). A CI that always seals
