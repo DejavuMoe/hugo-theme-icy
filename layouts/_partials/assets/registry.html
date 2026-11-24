@@ -16,8 +16,9 @@
           assets/css/features/<name>.css
     js    bool: assets/js/features/<name>.js exists
     vendor  paths under assets/ of third-party scripts published byte-for-byte
-          (fingerprinted, never re-bundled) as deferred classic scripts that
-          run before every feature module
+          (fingerprinted, never re-bundled). They are not linked: the feature
+          module loads them when needed with loadVendor(name) from
+          assets/js/modules/vendor.js
     needs other features loaded with this one
 */ -}}
 {{- return slice

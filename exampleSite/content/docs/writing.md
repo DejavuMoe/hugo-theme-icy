@@ -231,7 +231,7 @@ flowchart LR
 ```
 ````
 
-- The renderer, about 250 KB gzipped, loads only on pages with a diagram.
+- The renderer, about 250 KB gzipped, loads only when a diagram comes near the screen.
 - Readers can zoom in and out. Colors follow the color scheme.
 - Without JavaScript, or on a syntax error, the source is shown as code.
 - `accTitle` and `accDescr` give the diagram an accessible name and description.

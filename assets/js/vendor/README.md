@@ -1,7 +1,8 @@
 # Vendored libraries
 
-Published byte-for-byte (fingerprinted, never re-bundled) and loaded only on
-pages that need them — see `vendor` in `layouts/_partials/assets/registry.html`.
+Published byte-for-byte (fingerprinted, never re-bundled) and loaded only when
+a page needs them — see `vendor` in `layouts/_partials/assets/registry.html`
+and `assets/js/modules/vendor.js`.
 
 ## Pele 1.6.0
 

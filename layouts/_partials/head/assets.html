@@ -35,20 +35,27 @@
   {{- end }}
 {{- end }}
 
-{{- /* Vendored libraries first: deferred classic scripts run in document order
-     before the deferred feature modules that use their globals. */}}
+{{- /* Vendored libraries are not linked: they are listed (fingerprinted URL and
+     integrity hash) in an inert JSON block, and the feature module loads them
+     when needed (assets/js/modules/vendor.js). */}}
+{{- $vendor := dict }}
 {{- range $registry }}
-  {{- if index $registered .name }}
+  {{- if and .vendor (index $registered .name) }}
+    {{- $list := slice }}
     {{- range .vendor }}
       {{- with resources.Get . }}
         {{- with . | fingerprint }}
-<script defer src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
+          {{- $list = $list | append (dict "src" .RelPermalink "integrity" .Data.Integrity) }}
         {{- end }}
       {{- else }}
         {{- errorf "icy: vendor script %q not found in assets/" . }}
       {{- end }}
     {{- end }}
+    {{- $vendor = merge $vendor (dict .name $list) }}
   {{- end }}
+{{- end }}
+{{- with $vendor }}
+{{ printf `<script type="application/json" id="icy-vendor">%s</script>` (. | jsonify) | safeHTML }}
 {{- end }}
 
 {{- range $styles }}

@@ -74,3 +74,10 @@
     display: none;
   }
 }
+
+/* Diagrams load near the viewport; print the source of any not yet drawn. */
+@media print {
+  .pele-figure:not(.is-mounted) > .pele-source {
+    display: block;
+  }
+}
