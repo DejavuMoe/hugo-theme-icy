@@ -248,6 +248,7 @@ flowchart LR
 {{< details summary="Icy 需要 JavaScript 吗？" name="faq" >}}
 不需要。每个页面没有脚本都能用，脚本只是 **锦上添花**。
 {{< /details >}}
+
 {{< details summary="里面能写 Markdown 吗？" name="faq" >}}
 能，正文和 `summary` 里的行内格式都可以。
 {{< /details >}}
@@ -256,6 +257,7 @@ flowchart LR
 {{</* details summary="Icy 需要 JavaScript 吗？" name="faq" */>}}
 不需要。每个页面没有脚本都能用，脚本只是 **锦上添花**。
 {{</* /details */>}}
+
 {{</* details summary="里面能写 Markdown 吗？" name="faq" */>}}
 能，正文和 `summary` 里的行内格式都可以。
 {{</* /details */>}}

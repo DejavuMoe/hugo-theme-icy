@@ -60,9 +60,11 @@ tags = ['Markdown']
 {{< details summary="Icy 需要 Node.js 吗？" name="faq" >}}
 不需要，所有东西都由 Hugo 构建。只有受保护文章的可选脚本才用到 Node.js。
 {{< /details >}}
+
 {{< details summary="不开 JavaScript 能用吗？" name="faq" >}}
 能。每个页面都可以正常阅读和跳转。JavaScript 只负责图片查看器、播放器控件、复制按钮和脚注预览。
 {{< /details >}}
+
 {{< details summary="可以换颜色吗？" name="faq" >}}
 可以，改一个设置就行。深色模式和带暖调的灰色都会跟着变。
 {{< /details >}}

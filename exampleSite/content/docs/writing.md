@@ -246,6 +246,7 @@ A collapsible section that works without JavaScript and opens for the browser's 
 {{< details summary="Does Icy need JavaScript?" name="faq" >}}
 No. Every page works without it, and scripts only **add** to it.
 {{< /details >}}
+
 {{< details summary="Can I use Markdown inside?" name="faq" >}}
 Yes, in the content and inline in `summary`.
 {{< /details >}}
@@ -254,6 +255,7 @@ Yes, in the content and inline in `summary`.
 {{</* details summary="Does Icy need JavaScript?" name="faq" */>}}
 No. Every page works without it, and scripts only **add** to it.
 {{</* /details */>}}
+
 {{</* details summary="Can I use Markdown inside?" name="faq" */>}}
 Yes, in the content and inline in `summary`.
 {{</* /details */>}}

@@ -8,7 +8,7 @@ images = ['covers/integrations.webp']
 
 Icy 内置一种评论系统 Ecoku 和一种统计服务 Plausible，两者都可以自托管。要换用其他服务，覆盖相应的模板即可，见 [自定义](/docs/customization/#overrides)。
 
-## 评论 {#comments}
+## 评论 {#ecoku}
 
 Ecoku 是一个自托管的评论服务。配置好之后，评论会显示在每个普通页面的末尾：
 

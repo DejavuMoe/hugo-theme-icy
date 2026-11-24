@@ -6,7 +6,7 @@
 
 .highlight {
   /* Low-chroma ink tones: highlighting separates tokens without shouting. */
-  --syntax-comment: light-dark(oklch(60% 0.005 260), oklch(67% 0.005 260));
+  --syntax-comment: light-dark(oklch(50% 0.005 260), oklch(72% 0.005 260));
   --syntax-keyword: light-dark(oklch(45% 0.11 300), oklch(78% 0.08 300));
   --syntax-string: light-dark(oklch(47% 0.09 150), oklch(78% 0.08 150));
   --syntax-number: light-dark(oklch(52% 0.1 55), oklch(80% 0.08 65));

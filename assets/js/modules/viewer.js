@@ -38,12 +38,15 @@ export function initViewer() {
   const [dialog] = claim(document, "[data-viewer-dialog]", "viewer");
   if (!dialog) return;
 
-  const image = dialog.querySelector(".viewer-image");
+  const newImage = (props) => Object.assign(document.createElement("img"), { alt: "", decoding: "async" }, props);
+  const image = newImage({ className: "viewer-image" });
+  dialog.querySelector(".viewer-stage").prepend(image);
   const caption = dialog.querySelector(".viewer-caption");
   const counter = dialog.querySelector(".viewer-counter");
   const live = dialog.querySelector("[data-viewer-live]");
   const liveFrame = live?.querySelector(".live-photo-frame");
-  const liveStill = live?.querySelector(".live-photo-still img");
+  const liveStill = live && newImage({ draggable: false });
+  live?.querySelector(".live-photo-still").append(liveStill);
   const liveVideo = live?.querySelector(".live-photo-video");
 
   const stopLive = () => live?.dispatchEvent(new CustomEvent(LIVE_STOP));

@@ -8,7 +8,7 @@ images = ['covers/integrations.webp']
 
 Icy has one built-in comment system, Ecoku, and one analytics service, Plausible. Both can be self-hosted. To use another service, override a template: see [Customization](/docs/customization/#overrides).
 
-## Comments {#comments}
+## Comments {#ecoku}
 
 Ecoku is a self-hosted comment service. Comments appear at the end of every regular page once you configure it:
 

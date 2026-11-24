@@ -76,9 +76,14 @@
   line-height: 1.25rem;
 }
 
+/* Underlined, not only colored: the links must stand out from the faint
+   line around them without relying on color (WCAG 1.4.1). */
 .footer-powered a,
 .footer-credit a {
   color: var(--color-heading);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in oklch, currentColor 35%, transparent);
+  text-underline-offset: 0.2em;
 
   &:hover {
     color: var(--color-accent);

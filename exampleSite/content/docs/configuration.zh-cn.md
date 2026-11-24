@@ -252,7 +252,7 @@ Icy 无法使用的值会中断构建，错误信息会指出是哪一项。例�
 | `params.friends` | [友链](/docs/pages/#friends) |
 | `params.livePhoto` | [实况照片](/docs/media/#live-photo) |
 | `params.repo` | [仓库卡片](/docs/writing/#repo) |
-| `params.comments` | [评论](/docs/integrations/#comments) |
+| `params.comments` | [评论](/docs/integrations/#ecoku) |
 | `params.analytics` | [统计](/docs/integrations/#analytics) |
 | `params.images`、`params.schema`、`params.verification` | [SEO](/docs/integrations/#seo) |
 | `enableRobotsTXT`、`params.robots` | [robots.txt](/docs/integrations/#robots) |

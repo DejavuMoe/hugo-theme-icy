@@ -43,7 +43,7 @@
   {{- end }}
 
   <div class="prose">
-    {{ .Content }}
+    {{ partial "func/content.html" . | safeHTML }}
   </div>
 
   {{- /* Only pages with a copyright card get a footer: an empty one would add

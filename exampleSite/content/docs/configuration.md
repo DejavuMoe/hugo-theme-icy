@@ -252,7 +252,7 @@ These settings and parameters are documented with their feature.
 | `params.friends` | [Friends](/docs/pages/#friends) |
 | `params.livePhoto` | [Live photos](/docs/media/#live-photo) |
 | `params.repo` | [Repository cards](/docs/writing/#repo) |
-| `params.comments` | [Comments](/docs/integrations/#comments) |
+| `params.comments` | [Comments](/docs/integrations/#ecoku) |
 | `params.analytics` | [Analytics](/docs/integrations/#analytics) |
 | `params.images`, `params.schema`, `params.verification` | [SEO](/docs/integrations/#seo) |
 | `enableRobotsTXT`, `params.robots` | [robots.txt](/docs/integrations/#robots) |

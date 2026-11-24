@@ -60,9 +60,11 @@ tags = ['Markdown']
 {{< details summary="Does Icy need Node.js?" name="faq" >}}
 No. Hugo builds everything. Node.js is only used by the optional scripts for protected posts.
 {{< /details >}}
+
 {{< details summary="Does it work without JavaScript?" name="faq" >}}
 Yes. Every page reads and navigates without script. JavaScript adds the image viewer, player controls, copy buttons and footnote previews.
 {{< /details >}}
+
 {{< details summary="Can I change the color?" name="faq" >}}
 Yes, one setting. The dark scheme and the tinted greys follow it.
 {{< /details >}}

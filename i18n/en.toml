@@ -26,6 +26,8 @@ pageXofY = "Page {{ .Current }} of {{ .Total }}"
 
 # Article
 tableOfContents = "Contents"
+taskDone = "Done"
+taskOpen = "Not done"
 tags = "Tags"
 categories = "Categories"
 updatedOn = "Updated {{ .Date }}"

@@ -19,9 +19,9 @@
  * Sizes are rem-based so OS text scaling and zoom work; never set a root font-size.
  *
  * Contrast on --color-bg (light / dark), default accent: heading 17.2 / 13.2,
- * text 11.8 / 9.9, muted 4.8 / 6.5, faint 3.1 / 4.1 (large or non-essential
- * text only), accent 5.0 / 6.3. The dark ground is a soft warm grey
- * (L 0.245), not black.
+ * text 11.8 / 9.9, muted 6.0 / 6.5, faint 5.1 / 5.2, accent 5.0 / 6.3. Every
+ * text color meets WCAG AA (4.5:1), on --color-surface too. The dark ground
+ * is a soft warm grey (L 0.245), not black.
  */
 
 :root {
@@ -36,8 +36,8 @@
   --paper: oklch(100% 0 0);
   --gray-50: oklch(from var(--accent) 0.972 0.0022 h);
   --gray-100: oklch(from var(--accent) 0.93 0.003 h);
-  --gray-400: oklch(from var(--accent) 0.66 0.006 h);
-  --gray-500: oklch(from var(--accent) 0.54 0.006 h);
+  --gray-400: oklch(from var(--accent) 0.54 0.006 h);
+  --gray-500: oklch(from var(--accent) 0.5 0.006 h);
   --gray-700: oklch(from var(--accent) 0.33 0.006 h);
   --gray-900: oklch(from var(--accent) 0.215 0.006 h);
 
@@ -46,7 +46,7 @@
   --night-950: oklch(from var(--accent) 0.245 0.008 h);
   --night-900: oklch(from var(--accent) 0.285 0.008 h);
   --night-800: oklch(from var(--accent) 0.345 0.008 h);
-  --night-500: oklch(from var(--accent) 0.6 0.007 h);
+  --night-500: oklch(from var(--accent) 0.66 0.007 h);
   --night-400: oklch(from var(--accent) 0.72 0.006 h);
   --night-200: oklch(from var(--accent) 0.84 0.005 h);
   --night-50: oklch(from var(--accent) 0.93 0.004 h);
@@ -203,14 +203,14 @@
     --paper: #fff;
     --gray-50: #f6f5f4;
     --gray-100: #ebe9e8;
-    --gray-400: #949190;
-    --gray-500: #74716f;
+    --gray-400: #726d6c;
+    --gray-500: #666261;
     --gray-700: #3a3736;
     --gray-900: #1d1b1a;
     --night-950: #241f1e;
     --night-900: #2e2927;
     --night-800: #3d3836;
-    --night-500: #847f7d;
+    --night-500: #96918f;
     --night-400: #a8a3a2;
     --night-200: #cec9c8;
     --night-50: #eae7e6;

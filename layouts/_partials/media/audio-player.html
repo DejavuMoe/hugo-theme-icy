@@ -48,7 +48,7 @@
 {{- end }}
 {{- with $t.device }}{{ $details = $details | append . }}{{ end }}
 
-<figure class="audio-player {{- if eq $variant "row" }} is-row{{ end }}" data-audio-player>
+<figure class="audio-player {{- if eq $variant "row" }} is-row{{ end }}" data-audio-player aria-label="{{ $title }}">
   <div class="audio-art">
     {{- with $coverURL }}
     <img src="{{ . }}" alt="" width="80" height="80" loading="lazy" decoding="async">
@@ -64,12 +64,12 @@
     </button>{{ "<!--/ui-->" | safeHTML }}
   </div>
   <div class="audio-main">
-    <figcaption class="audio-meta">
+    <div class="audio-meta">
       <span class="audio-title">{{ $title }}</span>
       {{- with $t.artist }}
       <span class="audio-artist">{{ . }}</span>
       {{- end }}
-    </figcaption>
+    </div>
     {{- with $details }}
     <p class="audio-details">{{ range . }}<span>{{ . }}</span>{{ end }}</p>
     {{- end }}

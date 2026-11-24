@@ -1,0 +1,18 @@
+{{- /*
+  Redirect page for aliases (and the default language's /en/ path): Hugo's
+  built-in version has no <body>; this one adds a link for agents that do
+  not follow meta refresh.
+*/ -}}
+<!doctype html>
+<html lang="{{ or site.Language.Locale site.Language.Lang }}">
+<head>
+<meta charset="utf-8">
+<title>{{ .Permalink }}</title>
+<link rel="canonical" href="{{ .Permalink }}">
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0; url={{ .Permalink }}">
+</head>
+<body>
+<p><a href="{{ .Permalink }}">{{ .Permalink }}</a></p>
+</body>
+</html>
