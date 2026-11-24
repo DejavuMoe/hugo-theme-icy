@@ -100,7 +100,7 @@ export function initProtected() {
   // Release the decrypted files when the page is really discarded — not when
   // it goes into the back/forward cache, where coming back must still work.
   window.addEventListener("pagehide", (event) => {
-    if (!event.persisted) blobURLs.splice(0).forEach((u) => URL.revokeObjectURL(u));
+    if (!event.persisted) for (const u of blobURLs.splice(0)) URL.revokeObjectURL(u);
   });
 }
 
@@ -204,7 +204,7 @@ function rewriteReferences(root, assets) {
       }).join(", "));
     }
     const style = el.getAttribute("style");
-    if (style && style.includes("url(")) {
+    if (style?.includes("url(")) {
       el.setAttribute("style", style.replace(/url\(\s*(['"]?)([^'")]+)\1\s*\)/g, (full, q, src) => {
         const hit = swap(src);
         return hit ? `url(${q}${hit.value}${q})` : full;

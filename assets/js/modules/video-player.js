@@ -31,7 +31,7 @@ function setup(root) {
 
   media.removeAttribute("controls");
   root.querySelector("[data-controls]")?.removeAttribute("hidden");
-  root.querySelectorAll("[data-play]").forEach((b) => b.removeAttribute("hidden"));
+  for (const b of root.querySelectorAll("[data-play]")) b.removeAttribute("hidden");
   root.classList.add("is-enhanced");
   const transport = bindTransport({ root, media });
 

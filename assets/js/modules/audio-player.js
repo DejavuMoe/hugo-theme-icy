@@ -15,7 +15,7 @@ export function initAudioPlayers(scope = document) {
     if (!media) continue;
     media.removeAttribute("controls");
     root.querySelector("[data-controls]")?.removeAttribute("hidden");
-    root.querySelectorAll("[data-play]").forEach((b) => b.removeAttribute("hidden"));
+    for (const b of root.querySelectorAll("[data-play]")) b.removeAttribute("hidden");
     root.classList.add("is-enhanced");
     players.set(root, bindTransport({ root, media }));
   }
@@ -40,7 +40,7 @@ export function initAudioPlayers(scope = document) {
         if (root.classList.contains("has-started")) playFrom(i + 1);
       });
       media.addEventListener("play", () => {
-        roots.forEach((other) => other.classList.toggle("is-current", other === root));
+        for (const other of roots) other.classList.toggle("is-current", other === root);
       });
     });
 

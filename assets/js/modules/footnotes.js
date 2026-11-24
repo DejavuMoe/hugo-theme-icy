@@ -50,9 +50,9 @@ function createPreview() {
     const note = document.getElementById(decodeURIComponent(ref.hash.slice(1)));
     if (!note) return;
     const content = note.cloneNode(true);
-    content.querySelectorAll(".footnote-backref").forEach((el) => el.remove());
+    for (const el of content.querySelectorAll(".footnote-backref")) el.remove();
     content.removeAttribute("id");
-    content.querySelectorAll("[id]").forEach((el) => el.removeAttribute("id"));
+    for (const el of content.querySelectorAll("[id]")) el.removeAttribute("id");
     preview.replaceChildren(...content.childNodes);
     owner = ref;
     if (!preview.matches(":popover-open")) preview.showPopover();

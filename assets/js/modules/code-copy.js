@@ -30,7 +30,7 @@ export function initCodeCopy(root = document) {
       const code = block?.querySelector("pre code");
       if (!code) return;
       const clone = code.cloneNode(true);
-      clone.querySelectorAll(".ln, .lnt").forEach((el) => el.remove());
+      for (const el of clone.querySelectorAll(".ln, .lnt")) el.remove();
       // Line-number tables keep the code in the last cell.
       const cells = block.querySelectorAll(".lntd:last-child code");
       const text = cells.length ? [...cells].map((c) => c.textContent).join("") : clone.textContent;

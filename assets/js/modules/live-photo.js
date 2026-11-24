@@ -136,7 +136,7 @@ function setup(figure) {
     if (press || held || mode === "full") event.preventDefault();
   });
   frame.addEventListener("dragstart", (event) => event.preventDefault());
-  frame.querySelectorAll("img").forEach((img) => img.setAttribute("draggable", "false"));
+  for (const img of frame.querySelectorAll("img")) img.setAttribute("draggable", "false");
 
   // A long press must not also open the viewer.
   frame.addEventListener("click", (event) => {

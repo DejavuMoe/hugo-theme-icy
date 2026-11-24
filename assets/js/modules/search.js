@@ -106,11 +106,9 @@ export function initSearch() {
     const lower = source.toLowerCase();
     const ranges = [];
     for (const term of terms) {
-      let from = 0;
-      let at;
-      while (term && (at = lower.indexOf(term, from)) !== -1) {
+      if (!term) continue;
+      for (let at = lower.indexOf(term); at !== -1; at = lower.indexOf(term, at + term.length)) {
         ranges.push([at, at + term.length]);
-        from = at + term.length;
       }
     }
     ranges.sort((a, b) => a[0] - b[0]);

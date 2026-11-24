@@ -247,7 +247,7 @@ export async function seal(siteDirectory, { dryRun = false } = {}) {
     for (const file of (await walk(site)).filter(isText)) {
       const text = await fs.readFile(file, "utf8");
       for (const route of removed) {
-        if (text.includes(`"${route}"`) || text.includes(`>${route}<`) || text.includes(route + '"')) {
+        if (text.includes(`"${route}"`) || text.includes(`>${route}<`) || text.includes(`${route}"`)) {
           throw new Error(`removed private term ${route} is still referenced in ${posix(path.relative(site, file))}`);
         }
       }
