@@ -12,6 +12,8 @@ images = ['covers/installation.webp']
 - Git，用来添加主题。
 - Node.js，只有发布 [受保护文章](/docs/protected-posts/) 时才需要。
 
+读者需要使用 Chrome 或 Edge 123、Firefox 125、Safari 17.5（iPhone 和 iPad 上也一样）或更新的版本，它们都发布于 2024 年。更旧的浏览器也能打开每个页面，只是样式简单一些。
+
 ## 安装 {#install}
 
 还没有站点的话，先新建一个，之后的命令都在站点目录里运行：
@@ -29,8 +31,11 @@ git init
 推荐的方式：
 
 ```sh
-git submodule add https://github.com/DejavuMoe/hugo-theme-icy.git themes/hugo-theme-icy
+git submodule add --depth 1 https://github.com/DejavuMoe/hugo-theme-icy.git themes/hugo-theme-icy
+git config -f .gitmodules submodule.themes/hugo-theme-icy.shallow true
 ```
+
+`--depth 1` 不下载主题的历史记录，第二行让以后的克隆也同样精简。取回的文件里仍然包含约 12 MB 的演示站；用 Hugo 模块安装则不包含。
 
 以后克隆站点时，用 `git clone --recurse-submodules` 连主题一起取回。
 {{< /tab >}}
@@ -49,7 +54,7 @@ hugo mod init github.com/you/my-blog
     path = 'github.com/DejavuMoe/hugo-theme-icy'
 ```
 
-这样主题放在 Hugo 的模块缓存里。文档中以 `node themes/hugo-theme-icy/` 开头的命令，要换成缓存里的路径。
+这样主题放在 Hugo 的模块缓存里，不含演示站。文档中以 `node themes/hugo-theme-icy/` 开头的命令，要换成缓存里的路径。
 {{< /tab >}}
 {{< tab title="ZIP" >}}
 下载 [仓库的 ZIP 压缩包](https://github.com/DejavuMoe/hugo-theme-icy/archive/refs/heads/master.zip)，解压后把文件夹改名为站点里的 `themes/hugo-theme-icy`。
@@ -137,7 +142,7 @@ hugo --gc --minify
 {{< tabs label="更新主题" >}}
 {{< tab title="Git 子模块" >}}
 ```sh
-git submodule update --remote themes/hugo-theme-icy
+git submodule update --remote --depth 1 themes/hugo-theme-icy
 ```
 {{< /tab >}}
 {{< tab title="Hugo 模块" >}}

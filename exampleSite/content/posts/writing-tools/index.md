@@ -25,7 +25,7 @@ There are three ways to add Icy to a site. Pick one:
 {{< /tab >}}
 {{< tab title="Git submodule" >}}
 ```sh
-git submodule add https://github.com/DejavuMoe/hugo-theme-icy themes/hugo-theme-icy
+git submodule add --depth 1 https://github.com/DejavuMoe/hugo-theme-icy themes/hugo-theme-icy
 ```
 {{< /tab >}}
 {{< tab title="Download" >}}

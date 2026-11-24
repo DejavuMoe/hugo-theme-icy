@@ -19,11 +19,13 @@
 
 ## 快速开始
 
-需要 Hugo 0.158.0 或更新版本（标准版即可）和 Git。
+需要 Hugo 0.158.0 或更新版本（标准版即可）和 Git。读者需要使用 Chrome 或 Edge 123、Firefox 125、Safari 17.5 或更新的版本；更旧的浏览器也能打开每个页面，只是样式简单一些。
 
 ```sh
-git submodule add https://github.com/DejavuMoe/hugo-theme-icy.git themes/hugo-theme-icy
+git submodule add --depth 1 https://github.com/DejavuMoe/hugo-theme-icy.git themes/hugo-theme-icy
 ```
+
+取回的文件里包含约 12 MB 的演示站。不想要它的话，改用 [Hugo 模块](https://icy.zsh.moe/zh-cn/docs/installation/#install) 安装。
 
 然后在 `hugo.toml` 里设置主题和它需要的 Markdown 选项：
 

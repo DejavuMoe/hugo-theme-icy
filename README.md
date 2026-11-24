@@ -19,11 +19,13 @@ English · [简体中文](README.zh-CN.md)
 
 ## Quick start
 
-You need Hugo 0.158.0 or later (the standard edition) and Git.
+You need Hugo 0.158.0 or later (the standard edition) and Git. Readers need Chrome or Edge 123, Firefox 125, Safari 17.5 or newer; older browsers still show every page, with plainer styling.
 
 ```sh
-git submodule add https://github.com/DejavuMoe/hugo-theme-icy.git themes/hugo-theme-icy
+git submodule add --depth 1 https://github.com/DejavuMoe/hugo-theme-icy.git themes/hugo-theme-icy
 ```
+
+The checkout includes the demo site (about 12 MB). To leave it out, install the theme as a [Hugo Module](https://icy.zsh.moe/docs/installation/#install) instead.
 
 Then set the theme and the Markdown settings it needs in `hugo.toml`:
 

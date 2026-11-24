@@ -12,6 +12,8 @@ images = ['covers/installation.webp']
 - Git, to add the theme.
 - Node.js, only if you publish [protected posts](/docs/protected-posts/).
 
+Readers need Chrome or Edge 123, Firefox 125, or Safari 17.5 (also on iPhone and iPad), all released in 2024, or anything newer. Older browsers still show every page, with plainer styling.
+
 ## Install {#install}
 
 Create a site if you don't have one yet, and run every later command inside it:
@@ -29,8 +31,11 @@ Then add the theme:
 The recommended way:
 
 ```sh
-git submodule add https://github.com/DejavuMoe/hugo-theme-icy.git themes/hugo-theme-icy
+git submodule add --depth 1 https://github.com/DejavuMoe/hugo-theme-icy.git themes/hugo-theme-icy
+git config -f .gitmodules submodule.themes/hugo-theme-icy.shallow true
 ```
+
+`--depth 1` skips the theme's history, and the second line keeps later clones just as small. The checkout still includes the demo site, about 12 MB; a Hugo Module leaves it out.
 
 To clone your site later with the theme, use `git clone --recurse-submodules`.
 {{< /tab >}}
@@ -49,7 +54,7 @@ In the configuration below, replace `theme = 'hugo-theme-icy'` with:
     path = 'github.com/DejavuMoe/hugo-theme-icy'
 ```
 
-The theme then lives in Hugo's module cache. Commands in these docs that start with `node themes/hugo-theme-icy/` need that path instead.
+The theme then lives in Hugo's module cache, without the demo site. Commands in these docs that start with `node themes/hugo-theme-icy/` need that path instead.
 {{< /tab >}}
 {{< tab title="ZIP" >}}
 Download the [repository as a ZIP](https://github.com/DejavuMoe/hugo-theme-icy/archive/refs/heads/master.zip), extract it, and rename the folder to `themes/hugo-theme-icy` inside your site.
@@ -137,7 +142,7 @@ Read the [changelog](/changelog/) first, then:
 {{< tabs label="Update the theme" >}}
 {{< tab title="Git submodule" >}}
 ```sh
-git submodule update --remote themes/hugo-theme-icy
+git submodule update --remote --depth 1 themes/hugo-theme-icy
 ```
 {{< /tab >}}
 {{< tab title="Hugo Module" >}}
