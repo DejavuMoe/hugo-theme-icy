@@ -7,7 +7,9 @@
 import { initColorScheme } from "./modules/color-scheme.js";
 import { initMediaLoaded } from "./modules/media-loaded.js";
 import { initBackToTop } from "./modules/back-to-top.js";
+import { initMenu } from "./modules/menu.js";
 
 initColorScheme();
 initMediaLoaded();
 initBackToTop();
+initMenu();

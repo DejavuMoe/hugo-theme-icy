@@ -161,10 +161,11 @@
   background: transparent;
 }
 
-/* The close button sits where the menu button was. */
+/* The close button sits where the menu button was (and is sized like it,
+   below), so the glyph folds in place. */
 .menu-close {
   position: absolute;
-  inset-block-start: var(--space-5);
+  inset-block-start: calc(var(--space-5) + (var(--ui-control-size) - 2.25rem) / 2);
   inset-inline-end: calc(var(--gutter) - var(--space-2));
 }
 
@@ -173,21 +174,96 @@
   overflow: hidden;
 }
 
-/* The panel fades and settles in. Closing is instant: an exit transition
-   would keep the nav displayed for a moment after it left the top layer,
-   flashing the links as a row in the header. */
+/* The panel's ground fades in and the links settle; the close button stays
+   solid, so its bars can fold from the menu glyph it covers. Closing is
+   instant: an exit transition would keep the nav displayed for a moment
+   after it left the top layer, flashing the links as a row in the header. */
 @media (prefers-reduced-motion: no-preference) {
   .site-nav:popover-open {
-    transition:
-      opacity var(--duration-base) var(--ease-out),
-      translate var(--duration-base) var(--ease-out);
+    transition: background-color var(--duration-base) var(--ease-out);
+
+    & > :not(.menu-close) {
+      transition:
+        opacity var(--duration-base) var(--ease-out),
+        translate var(--duration-base) var(--ease-out);
+    }
   }
 
   @starting-style {
     .site-nav:popover-open {
-      opacity: 0;
-      translate: 0 -0.5rem;
+      background-color: transparent;
+
+      & > :not(.menu-close) {
+        opacity: 0;
+        translate: 0 -0.5rem;
+      }
     }
+  }
+}
+
+/* ---- Menu glyph ----
+   Three bars in both buttons. In the open panel the close button's bars fold
+   into a cross; on closing, the menu button's bars, left crossed while it was
+   covered, unfold again. An even ease, slow enough to read as one glyph
+   changing shape. */
+.menu-icon path {
+  transform-box: view-box;
+  transition:
+    transform 320ms cubic-bezier(0.65, 0, 0.35, 1),
+    opacity 160ms var(--ease-out);
+}
+
+.menu-icon-top {
+  transform-origin: 12px 7px;
+}
+
+.menu-icon-bottom {
+  transform-origin: 12px 17px;
+}
+
+.menu-close .menu-icon,
+:root:has(.site-nav:popover-open) .menu-toggle .menu-icon {
+  & .menu-icon-top {
+    transform: translateY(5px) rotate(45deg);
+  }
+
+  & .menu-icon-mid {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+
+  & .menu-icon-bottom {
+    transform: translateY(-5px) rotate(-45deg);
+  }
+}
+
+/* Covered: hidden, and crossed at once, ready to unfold. */
+:root:has(.site-nav:popover-open) .menu-toggle .menu-icon {
+  visibility: hidden;
+
+  & path {
+    transition: none;
+  }
+}
+
+/* Opening: a keyframe run rather than a starting style, which SVG paths in
+   a just-shown popover do not pick up. */
+@media (prefers-reduced-motion: no-preference) {
+  .site-nav:popover-open .menu-close .menu-icon path {
+    animation: menu-fold 320ms cubic-bezier(0.65, 0, 0.35, 1) backwards;
+  }
+}
+
+@keyframes menu-fold {
+  from {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-icon path {
+    transition: none;
   }
 }
 
@@ -271,10 +347,16 @@
   }
 }
 
-.menu-close .icon {
-  inline-size: 1.25rem;
-  block-size: 1.25rem;
-  stroke-width: 1.5;
+.menu-close {
+  min-inline-size: 2.25rem;
+  min-block-size: 2.25rem;
+  padding-inline: var(--space-1);
+
+  & .icon {
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+    stroke-width: 1.5;
+  }
 }
 
 /* More than two languages: a small code beside the icon tells them apart. */
@@ -359,7 +441,7 @@
   }
 }
 
-   One glyph, two states. Light (offers dark): a small sun with its rays.
+/* One glyph, two states. Light (offers dark): a small sun with its rays.
    Dark (offers light): the disc grows, a shadow disc slides in to cut a
    crescent, the rays turn away and fade. Transforms only, springy timing. */
 .theme-toggle-icon {

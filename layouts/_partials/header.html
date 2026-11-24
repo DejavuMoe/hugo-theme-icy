@@ -8,6 +8,9 @@
   and the close button dismiss it.
 */ -}}
 {{- $search := false }}
+{{- /* The menu glyph: three bars that fold into a cross while the panel is
+     open (header.css), drawn the same in both buttons so they line up. */}}
+{{- $menuIcon := `<svg class="icon menu-icon" viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path class="menu-icon-top" d="M4 7h16"/><path class="menu-icon-mid" d="M4 12h16"/><path class="menu-icon-bottom" d="M4 17h16"/></svg>` | safeHTML }}
 {{- with site.Params.search.page }}{{ $search = site.GetPage . }}{{ end }}
 <header class="site-header">
   <div class="header-inner">
@@ -16,7 +19,7 @@
     {{- with site.Menus.main }}
     <nav class="site-nav" id="site-nav" popover aria-label="{{ T "primaryNavigation" }}">
       <button class="icon-button menu-close" type="button" popovertarget="site-nav" popovertargetaction="hide">
-        {{- partial "icon.html" "close" -}}
+        {{- $menuIcon -}}
         <span class="visually-hidden">{{ T "closeMenu" }}</span>
       </button>
       <ul class="site-menu" role="list">
@@ -117,7 +120,7 @@
       {{- /* Compact layout only (hidden by header-wide.css), at the far right,
            where the thumb reaches it. */}}
       <button class="icon-button menu-toggle" type="button" popovertarget="site-nav" aria-haspopup="true">
-        {{- partial "icon.html" "menu" -}}
+        {{- $menuIcon -}}
         <span class="visually-hidden">{{ T "menu" }}</span>
       </button>
       {{- end }}
