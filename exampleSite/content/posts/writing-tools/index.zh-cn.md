@@ -67,17 +67,24 @@ tags = ['Markdown']
 可以，改一个设置就行。深色模式和带暖调的灰色都会跟着变。
 {{< /details >}}
 
-## 背后的项目
+## 作者的其他项目
 
-{{< repo url="https://github.com/gohugoio/hugo" >}}
+星标最多的一个：
 
-还有它依赖的几个项目：
+{{< repo url="https://github.com/DejavuMoe/Smoji" >}}
+
+其余的按星标数排列：
 
 {{< repo-grid >}}
-{{< repo url="https://github.com/yuin/goldmark" title="Goldmark" description="Hugo 内置的 Markdown 解析器。" >}}
-{{< repo url="https://github.com/alecthomas/chroma" >}}
-{{< repo url="https://github.com/gohugoio/hugoDocs" >}}
-{{< repo url="https://codeberg.org/forgejo/forgejo" >}}
+{{< repo url="https://github.com/DejavuMoe/edgeTTS" >}}
+{{< repo url="https://github.com/DejavuMoe/Ecoku" >}}
+{{< repo url="https://github.com/DejavuMoe/PicForge" >}}
+{{< repo url="https://github.com/DejavuMoe/sani" >}}
+{{< repo url="https://github.com/DejavuMoe/prototype-first-ui" >}}
+{{< repo url="https://github.com/DejavuMoe/webfont-slice" >}}
+{{< repo url="https://github.com/DejavuMoe/general-project-audit-and-optimization" description="审计现有项目、挑选要做的修复，再逐项验证的 Agent Skill。" >}}
+{{< repo url="https://github.com/DejavuMoe/STranslate.Plugin.Tts.edgeTTS" >}}
+{{< repo url="https://github.com/DejavuMoe/PicBerth" description="自托管的个人图床：一个可执行文件加一个数据目录。" >}}
 {{< /repo-grid >}}
 
 ## 每天都用的快捷键

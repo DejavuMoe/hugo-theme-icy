@@ -312,10 +312,10 @@ winget install Hugo.Hugo.Extended
 
 GitHub、Forgejo 或 Gitea 仓库的卡片：描述、语言、星标、复刻、许可证和最近推送时间，都在构建时获取。
 
-{{< repo url="https://github.com/gohugoio/hugo" >}}
+{{< repo url="https://github.com/DejavuMoe/Smoji" >}}
 
 ```markdown
-{{</* repo url="https://github.com/gohugoio/hugo" */>}}
+{{</* repo url="https://github.com/DejavuMoe/Smoji" */>}}
 ```
 
 | 参数 | 默认值 | 说明 |
@@ -329,14 +329,18 @@ GitHub、Forgejo 或 Gitea 仓库的卡片：描述、语言、星标、复刻�
 `repo-grid` 把多张卡片排成自适应网格，不接受参数。
 
 {{< repo-grid >}}
-{{< repo url="https://github.com/gohugoio/hugo" >}}
-{{< repo "https://codeberg.org/forgejo/forgejo" >}}
+{{< repo url="https://github.com/DejavuMoe/edgeTTS" >}}
+{{< repo url="https://github.com/DejavuMoe/Ecoku" >}}
+{{< repo url="https://github.com/DejavuMoe/PicForge" >}}
+{{< repo "https://github.com/DejavuMoe/sani" >}}
 {{< /repo-grid >}}
 
 ```markdown
 {{</* repo-grid */>}}
-{{</* repo url="https://github.com/gohugoio/hugo" */>}}
-{{</* repo "https://codeberg.org/forgejo/forgejo" */>}}
+{{</* repo url="https://github.com/DejavuMoe/edgeTTS" */>}}
+{{</* repo url="https://github.com/DejavuMoe/Ecoku" */>}}
+{{</* repo url="https://github.com/DejavuMoe/PicForge" */>}}
+{{</* repo "https://github.com/DejavuMoe/sani" */>}}
 {{</* /repo-grid */>}}
 ```
 

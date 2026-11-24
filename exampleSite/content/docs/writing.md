@@ -310,10 +310,10 @@ Each `tab` sits directly inside `tabs`. Arrow keys, {{< kbd "Home" >}} and {{< k
 
 A card for a GitHub, Forgejo or Gitea repository: description, language, stars, forks, license and last push, fetched at build time.
 
-{{< repo url="https://github.com/gohugoio/hugo" >}}
+{{< repo url="https://github.com/DejavuMoe/Smoji" >}}
 
 ```markdown
-{{</* repo url="https://github.com/gohugoio/hugo" */>}}
+{{</* repo url="https://github.com/DejavuMoe/Smoji" */>}}
 ```
 
 | Parameter | Default | Description |
@@ -327,14 +327,18 @@ A card for a GitHub, Forgejo or Gitea repository: description, language, stars, 
 `repo-grid` lays out several cards in a responsive grid. It takes no parameters.
 
 {{< repo-grid >}}
-{{< repo url="https://github.com/gohugoio/hugo" >}}
-{{< repo "https://codeberg.org/forgejo/forgejo" >}}
+{{< repo url="https://github.com/DejavuMoe/edgeTTS" >}}
+{{< repo url="https://github.com/DejavuMoe/Ecoku" >}}
+{{< repo url="https://github.com/DejavuMoe/PicForge" >}}
+{{< repo "https://github.com/DejavuMoe/sani" >}}
 {{< /repo-grid >}}
 
 ```markdown
 {{</* repo-grid */>}}
-{{</* repo url="https://github.com/gohugoio/hugo" */>}}
-{{</* repo "https://codeberg.org/forgejo/forgejo" */>}}
+{{</* repo url="https://github.com/DejavuMoe/edgeTTS" */>}}
+{{</* repo url="https://github.com/DejavuMoe/Ecoku" */>}}
+{{</* repo url="https://github.com/DejavuMoe/PicForge" */>}}
+{{</* repo "https://github.com/DejavuMoe/sani" */>}}
 {{</* /repo-grid */>}}
 ```
 

@@ -67,17 +67,24 @@ Yes. Every page reads and navigates without script. JavaScript adds the image vi
 Yes, one setting. The dark scheme and the tinted greys follow it.
 {{< /details >}}
 
-## Projects behind it
+## More from the author
 
-{{< repo url="https://github.com/gohugoio/hugo" >}}
+The one with the most stars:
 
-And a few more it relies on:
+{{< repo url="https://github.com/DejavuMoe/Smoji" >}}
+
+And the rest, by stars:
 
 {{< repo-grid >}}
-{{< repo url="https://github.com/yuin/goldmark" title="Goldmark" description="The Markdown parser inside Hugo." >}}
-{{< repo url="https://github.com/alecthomas/chroma" >}}
-{{< repo url="https://github.com/gohugoio/hugoDocs" >}}
-{{< repo url="https://codeberg.org/forgejo/forgejo" >}}
+{{< repo url="https://github.com/DejavuMoe/edgeTTS" >}}
+{{< repo url="https://github.com/DejavuMoe/Ecoku" >}}
+{{< repo url="https://github.com/DejavuMoe/PicForge" >}}
+{{< repo url="https://github.com/DejavuMoe/sani" >}}
+{{< repo url="https://github.com/DejavuMoe/prototype-first-ui" >}}
+{{< repo url="https://github.com/DejavuMoe/webfont-slice" >}}
+{{< repo url="https://github.com/DejavuMoe/general-project-audit-and-optimization" description="An Agent Skill that audits a project, lets you pick the fixes, then verifies them." >}}
+{{< repo url="https://github.com/DejavuMoe/STranslate.Plugin.Tts.edgeTTS" >}}
+{{< repo url="https://github.com/DejavuMoe/PicBerth" description="A self-hosted image host: one binary and one data folder." >}}
 {{< /repo-grid >}}
 
 ## Shortcuts I use every day
