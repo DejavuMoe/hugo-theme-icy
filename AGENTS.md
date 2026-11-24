@@ -52,6 +52,7 @@ Docs are for people: plain words, short sentences, nothing a site owner doesn't 
 ## Git
 
 - Default branch: `master`. Commit or push only when asked.
+- Line endings are LF in every text file, on disk as well as in Git (`.gitattributes` `eol=lf`, `.editorconfig`). Never write CRLF; on Windows, avoid tools that default to it. `git ls-files --eol` must show `i/lf w/lf` for every text file.
 - Every commit an AI agent creates must end with exactly this one trailer, whatever model or tool it uses. This includes merge, squash, `--amend` and cherry-pick commits, and PR merge messages:
 
   ```
