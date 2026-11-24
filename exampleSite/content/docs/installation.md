@@ -101,18 +101,18 @@ hugo new posts/hello-world.md
 This creates `content/posts/hello-world.md` from the theme's post template. The commented lines in its front matter list the optional keys. Write the post below the front matter:
 
 ```markdown
-+++
-title = 'Hello World'
-date = 2026-11-24T10:00:00+08:00
-draft = true
-summary = ''
-tags = ['Notes']
-+++
+---
+title: 'Hello World'
+date: 2026-11-24T10:00:00+08:00
+draft: true
+summary: ''
+tags: ['Notes']
+---
 
 My first post with **Icy**.
 ```
 
-New posts are drafts. Set `draft = false` to publish one. For a post with its own images, create a folder instead: `hugo new posts/hello-world/index.md`, and put the images next to `index.md`. See [Media](/docs/media/#sources).
+New posts are drafts. Set `draft: false` to publish one. For a post with its own images, create a folder instead: `hugo new posts/hello-world/index.md`, and put the images next to `index.md`. See [Media](/docs/media/#sources).
 
 ## Preview {#preview}
 

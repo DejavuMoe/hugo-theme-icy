@@ -101,18 +101,18 @@ hugo new posts/hello-world.md
 这会按主题的文章模板生成 `content/posts/hello-world.md`，front matter 里注释掉的几行列出了可选的键。正文写在 front matter 下面：
 
 ```markdown
-+++
-title = '你好，世界'
-date = 2026-11-24T10:00:00+08:00
-draft = true
-summary = ''
-tags = ['随笔']
-+++
+---
+title: '你好，世界'
+date: 2026-11-24T10:00:00+08:00
+draft: true
+summary: ''
+tags: ['随笔']
+---
 
 我用 **Icy** 写的第一篇文章。
 ```
 
-新文章默认是草稿，改成 `draft = false` 才会发布。文章要带自己的图片时，改建一个文件夹：`hugo new posts/hello-world/index.md`，图片放在 `index.md` 旁边。详见 [媒体](/docs/media/#sources)。
+新文章默认是草稿，改成 `draft: false` 才会发布。文章要带自己的图片时，改建一个文件夹：`hugo new posts/hello-world/index.md`，图片放在 `index.md` 旁边。详见 [媒体](/docs/media/#sources)。
 
 ## 本地预览 {#preview}
 
