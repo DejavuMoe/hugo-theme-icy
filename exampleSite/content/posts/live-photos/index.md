@@ -13,6 +13,6 @@ This is Yogurt. On a computer, hover over her photo. On a phone, press and hold 
 
 {{< live-photo src="yogurt.jpg" video="yogurt.mp4" alt="Yogurt, the cat" caption="Yogurt, two seconds of her" >}}
 
-The same photo again, and this time a click opens it in the image viewer.
+The same photo again, and this time a click opens it in the image viewer, where she still moves.
 
 {{< live-photo src="yogurt.jpg" video="yogurt.mp4" alt="Yogurt, the cat" caption="Click to see her large" zoom=true >}}

@@ -3,9 +3,18 @@
  * plays; the frame scales a touch (as on phones) unless motion is reduced.
  */
 
+/* Press and hold plays the photo, so the frame opts out of what a long press
+   does to images and links: the iOS callout and link preview, dragging, and
+   text selection. live-photo.js blocks the context menu. */
 .live-photo-frame {
   -webkit-touch-callout: none;
+  -webkit-user-select: none;
   user-select: none;
+
+  & :is(a, img) {
+    -webkit-touch-callout: none;
+    -webkit-user-drag: none;
+  }
 }
 
 .live-photo-still {

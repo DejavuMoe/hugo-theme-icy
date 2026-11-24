@@ -52,6 +52,37 @@ html:has(.viewer[open]) {
   user-select: none;
 }
 
+/* A Live Photo fills the stage like .viewer-image: the still's proportions,
+   as large as the stage allows, never above the still's own width. */
+.viewer-live:not([hidden]) {
+  display: grid;
+  place-items: center;
+  inline-size: 100%;
+  block-size: 100%;
+  min-block-size: 0;
+  container-type: size;
+}
+
+.viewer-live .live-photo-frame {
+  position: relative;
+  overflow: hidden;
+  inline-size: min(100cqi, 100cqb * var(--ratio, 1.5), var(--natural-width, 100cqi));
+  aspect-ratio: var(--ratio, 1.5);
+  border-radius: var(--radius-s);
+  touch-action: pan-y pinch-zoom;
+}
+
+.viewer-live .live-photo-still,
+.viewer-live .live-photo-still img {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.viewer-live .live-photo-still img {
+  object-fit: cover;
+}
+
 .viewer-caption {
   max-inline-size: 40rem;
   color: oklch(82% 0 0);

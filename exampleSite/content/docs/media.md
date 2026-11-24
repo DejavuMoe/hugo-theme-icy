@@ -163,9 +163,9 @@ A still photo paired with a short video, like a phone's Live Photo. Hover over i
 | `alt` | `""` | Alternative text for the still. |
 | `caption` | — | Caption. Markdown. |
 | `width`, `height` | From the file | The still's size. |
-| `zoom` | `params.livePhoto.zoom` | `true` lets a click open the still in the viewer. |
+| `zoom` | `params.livePhoto.zoom` | `true` lets a click open the photo in the viewer, where it still plays. |
 
-- Hovering plays the video muted, unless the reader prefers reduced motion. A long press or **LIVE** plays it with sound.
+- Hovering plays the video muted, unless the reader prefers reduced motion. A long press or **LIVE** plays it with sound. On a phone, a long press plays the photo instead of opening the menu to save the image.
 - Nothing of the video is downloaded until it plays. Without JavaScript only the still shows.
 - A live photo stands on its own. Inside a gallery it fails the build.
 

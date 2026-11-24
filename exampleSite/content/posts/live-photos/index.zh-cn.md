@@ -13,6 +13,6 @@ categories = ['示例']
 
 {{< live-photo src="yogurt.jpg" video="yogurt.mp4" alt="酸奶" caption="酸奶的两秒钟" >}}
 
-还是这张照片，这次点击它会在图片查看器里打开。
+还是这张照片，这次点击它会在图片查看器里打开，在那里她也会动。
 
 {{< live-photo src="yogurt.jpg" video="yogurt.mp4" alt="酸奶" caption="点击看大图" zoom=true >}}

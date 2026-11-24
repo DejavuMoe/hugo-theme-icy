@@ -4,10 +4,24 @@
   links simply open the full image.
   `closedby="any"` enables light dismiss where supported; viewer.js adds a
   backdrop-click fallback.
+  On pages with Live Photos the stage also holds one Live Photo (still, clip
+  and LIVE button): viewer.js shows it for stills that carry data-live-video,
+  and live-photo.js plays it like any other.
 */ -}}
+{{- $features := .Store.Get "icyFeatures" | default dict }}
 <dialog class="viewer" data-viewer-dialog closedby="any" aria-label="{{ T "imageViewer" }}">
   <figure class="viewer-stage">
     <img class="viewer-image" alt="" decoding="async">
+    {{- if index $features "livephoto" }}
+    <div class="viewer-live live-photo" data-live-photo data-viewer-live hidden>
+      <div class="live-photo-frame">
+        <span class="live-photo-still"><img alt="" decoding="async" draggable="false"></span>
+        <video class="live-photo-video" muted playsinline preload="none"
+          disablepictureinpicture disableremoteplayback aria-hidden="true" tabindex="-1"></video>
+        {{ partial "media/live-photo-badge.html" . }}
+      </div>
+    </div>
+    {{- end }}
     <figcaption class="viewer-caption" hidden></figcaption>
   </figure>
   <p class="viewer-counter" aria-live="polite"></p>
