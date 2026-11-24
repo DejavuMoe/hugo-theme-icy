@@ -1,8 +1,11 @@
 {{- /*
   llms-full.txt: the Markdown source of every public page (see
   func/llms-pages.html for what is left out), one after another, so a
-  language model can read the whole site in one file.
+  language model can read the whole site in one file. Two clean-ups keep it
+  readable on its own: site-path links become absolute URLs in this
+  language, and escaped shortcode examples are unescaped.
 */ -}}
+{{- $home := site.Home.Permalink }}
 # {{ site.Title }}
 {{ with site.Params.description }}
 > {{ . | plainify }}
@@ -18,6 +21,11 @@ URL: {{ .Permalink }}
 {{ with .Description }}
 > {{ . }}
 {{ end }}
-{{ .RawContent | strings.TrimSpace }}
+{{ $md := .RawContent | strings.TrimSpace }}
+{{- $md = replaceRE `\]\(/` (printf "](%s" $home) $md }}
+{{- range slice (slice "{{</*" "{{<") (slice "*/>}}" ">}}") (slice "{{%/*" "{{%") (slice "*/%}}" "%}}") }}
+  {{- $md = replace $md (index . 0) (index . 1) }}
+{{- end }}
+{{- $md }}
 {{- end }}
 {{- end }}
