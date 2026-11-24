@@ -171,11 +171,14 @@ ignoreLogs = ['icy-protected-unsealed']
       serverURL = 'https://ecoku-dev.zsh.moe'
       siteId = 'hugo-theme-icy'
 
-  # Analytics are off in the demo. To try them:
-  # [params.analytics]
-  #   provider = 'plausible'
-  #   [params.analytics.plausible]
-  #     scriptURL = 'https://plausible.io/js/pa-XXXX.js'
+  # Analytics on the demo's own Plausible CE site; events go to a rewritten
+  # endpoint. A copy of this site needs its own Plausible site (or remove
+  # this block).
+  [params.analytics]
+    provider = 'plausible'
+    [params.analytics.plausible]
+      scriptURL = 'https://stats.via.moe/js/pa--QnqiMbjW-KjHBaUGGEqT.js'
+      endpoint = 'https://stats.via.moe/api/resource'
 
 [outputFormats]
   [outputFormats.llms]
