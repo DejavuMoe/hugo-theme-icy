@@ -1,0 +1,172 @@
+# Third-party media used by the demo site.
+# file: path relative to exampleSite/ (one entry per copy).
+# Fields: file, title, author, source, licence, licenceURL.
+
+# Audio and video (posts/audio-and-video). The recordings are excerpts
+# (20-40 s, re-encoded); the compositions themselves are in the public domain.
+- file: content/posts/audio-and-video/morning.m4a
+  title: Gymnopédie No. 1 (Erik Satie), excerpt
+  author: Robin Alciatore (piano), via Musopen
+  source: https://commons.wikimedia.org/wiki/File:Erik_Satie_-_gymnopedies_-_la_1_ere._lent_et_douloureux.ogg
+  licence: Public domain (released by the performer)
+  licenceURL: https://creativecommons.org/publicdomain/mark/1.0/
+- file: content/posts/audio-and-video/river.mp3
+  title: Nocturne in F major, Op. 15 No. 1 (Frédéric Chopin), excerpt
+  author: Luke Faulkner (piano), via Musopen
+  source: https://commons.wikimedia.org/wiki/File:Chopin_-_Nocturne_Op._15_no._1_in_F_major.ogg
+  licence: CC0 1.0
+  licenceURL: https://creativecommons.org/publicdomain/zero/1.0/
+- file: content/posts/audio-and-video/wind.mp3
+  title: Nocturne in E minor, Op. 72 No. 1 (Frédéric Chopin), excerpt
+  author: Peter Johnston (piano), via Musopen
+  source: https://commons.wikimedia.org/wiki/File:Chopin_Nocturne_in_Em,_Op._posth._72.ogg
+  licence: CC0 1.0
+  licenceURL: https://creativecommons.org/publicdomain/zero/1.0/
+- file: content/posts/audio-and-video/clip.mp4
+  title: Aurora Australis as seen from ISS, 12-second excerpt
+  author: NASA Scientific Visualization Studio / Marit Jentoft-Nilsen; photographs by the ISS crew
+  source: https://svs.gsfc.nasa.gov/31281
+  licence: Public domain (NASA)
+  licenceURL: https://www.nasa.gov/nasa-brand-center/images-and-media/
+- file: content/posts/audio-and-video/clip-poster.jpg
+  title: Aurora Australis as seen from ISS, frame
+  author: NASA Scientific Visualization Studio / Marit Jentoft-Nilsen; photographs by the ISS crew
+  source: https://svs.gsfc.nasa.gov/31281
+  licence: Public domain (NASA)
+  licenceURL: https://www.nasa.gov/nasa-brand-center/images-and-media/
+- file: content/posts/audio-and-video/cover-morning.jpg
+  title: Track cover (square crop)
+  author: Unsplash
+  source: https://unsplash.com/
+  licence: Unsplash License
+  licenceURL: https://unsplash.com/license
+- file: content/posts/audio-and-video/cover-river.jpg
+  title: Track cover (square crop)
+  author: Unsplash
+  source: https://unsplash.com/
+  licence: Unsplash License
+  licenceURL: https://unsplash.com/license
+
+# Photographs (resized to WebP).
+- file: content/posts/images-and-galleries/atitlan-path.webp
+  title: Path above Lake Atitlán
+  author: Unsplash
+  source: https://unsplash.com/
+  licence: Unsplash License
+  licenceURL: https://unsplash.com/license
+- file: content/posts/images-and-galleries/blue-ranges.webp
+  title: Blue mountain ranges
+  author: Unsplash
+  source: https://unsplash.com/
+  licence: Unsplash License
+  licenceURL: https://unsplash.com/license
+- file: content/posts/images-and-galleries/foggy-summit.webp
+  title: Foggy summit
+  author: Unsplash
+  source: https://unsplash.com/
+  licence: Unsplash License
+  licenceURL: https://unsplash.com/license
+- file: content/posts/images-and-galleries/forest-light.webp
+  title: Light in the forest
+  author: Unsplash
+  source: https://unsplash.com/
+  licence: Unsplash License
+  licenceURL: https://unsplash.com/license
+- file: content/posts/images-and-galleries/half-dome-deer.webp
+  title: Deer below Half Dome
+  author: Unsplash
+  source: https://unsplash.com/
+  licence: Unsplash License
+  licenceURL: https://unsplash.com/license
+- file: content/posts/images-and-galleries/heather-hillside.webp
+  title: Heather on a hillside
+  author: Unsplash
+  source: https://unsplash.com/
+  licence: Unsplash License
+  licenceURL: https://unsplash.com/license
+- file: content/posts/images-and-galleries/lake-boats.webp
+  title: Boats on a lake
+  author: Unsplash
+  source: https://unsplash.com/
+  licence: Unsplash License
+  licenceURL: https://unsplash.com/license
+- file: content/posts/images-and-galleries/lake-boats-small.webp
+  title: Boats on a lake (small)
+  author: Unsplash
+  source: https://unsplash.com/
+  licence: Unsplash License
+  licenceURL: https://unsplash.com/license
+- file: content/posts/images-and-galleries/orange-flowers.webp
+  title: Orange flowers
+  author: Unsplash
+  source: https://unsplash.com/
+  licence: Unsplash License
+  licenceURL: https://unsplash.com/license
+- file: content/posts/images-and-galleries/waterfall-bridge.webp
+  title: Bridge by a waterfall
+  author: Unsplash
+  source: https://unsplash.com/
+  licence: Unsplash License
+  licenceURL: https://unsplash.com/license
+- file: content/posts/images-and-galleries/yosemite-river.webp
+  title: River in Yosemite
+  author: Unsplash
+  source: https://unsplash.com/
+  licence: Unsplash License
+  licenceURL: https://unsplash.com/license
+- file: content/posts/markdown-and-typography/forest-light.webp
+  title: Light in the forest
+  author: Unsplash
+  source: https://unsplash.com/
+  licence: Unsplash License
+  licenceURL: https://unsplash.com/license
+- file: content/posts/markdown-and-typography/lake-boats.webp
+  title: Boats on a lake
+  author: Unsplash
+  source: https://unsplash.com/
+  licence: Unsplash License
+  licenceURL: https://unsplash.com/license
+- file: content/posts/secret-garden/atitlan-path.webp
+  title: Path above Lake Atitlán
+  author: Unsplash
+  source: https://unsplash.com/
+  licence: Unsplash License
+  licenceURL: https://unsplash.com/license
+- file: content/posts/secret-garden/orange-flowers.webp
+  title: Orange flowers
+  author: Unsplash
+  source: https://unsplash.com/
+  licence: Unsplash License
+  licenceURL: https://unsplash.com/license
+- file: content/posts/secret-garden/waterfall-bridge.webp
+  title: Bridge by a waterfall
+  author: Unsplash
+  source: https://unsplash.com/
+  licence: Unsplash License
+  licenceURL: https://unsplash.com/license
+
+# Yogurt the cat (live photo: still and two-second clip).
+- file: content/posts/live-photos/yogurt.jpg
+  title: Yogurt, the cat
+  author: Dejavu Moe
+  source: https://blog.dejavu.moe/
+  licence: Used with permission
+  licenceURL: ""
+- file: content/posts/live-photos/yogurt.mp4
+  title: Yogurt, the cat (live photo clip)
+  author: Dejavu Moe
+  source: https://blog.dejavu.moe/
+  licence: Used with permission
+  licenceURL: ""
+- file: content/posts/secret-garden/yogurt.jpg
+  title: Yogurt, the cat
+  author: Dejavu Moe
+  source: https://blog.dejavu.moe/
+  licence: Used with permission
+  licenceURL: ""
+- file: content/posts/secret-garden/yogurt.mp4
+  title: Yogurt, the cat (live photo clip)
+  author: Dejavu Moe
+  source: https://blog.dejavu.moe/
+  licence: Used with permission
+  licenceURL: ""

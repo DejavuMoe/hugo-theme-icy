@@ -1,0 +1,16 @@
+# Sites built with Icy, shown on the "Who uses Icy" page (layout "friends").
+# Using Icy? Open a pull request that adds your site here.
+# Fields: name, url, avatar (page bundle, assets/, static/ or a URL; optional),
+# description (a string, or a map by language code for multilingual sites).
+- name: Dejavu's Blog
+  url: https://blog.dejavu.moe/
+  avatar: friends/dejavu.webp
+  description:
+    en: Notes on self-hosting, the web and everyday life, by the author of Icy.
+    zh-cn: Icy 作者的博客：自托管、Web 与日常。
+- name: Hugo Icy Theme
+  url: https://icy.zsh.moe/
+  avatar: brand/icon.png
+  description:
+    en: The demo and documentation you are reading now.
+    zh-cn: 你正在看的演示与文档站。

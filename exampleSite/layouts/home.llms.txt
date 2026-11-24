@@ -1,0 +1,23 @@
+{{- /*
+  llms.txt (https://llmstxt.org/) for the Icy documentation site: a Markdown
+  index of every public page with its URL and summary, so an AI assistant can
+  find its way around the docs. Site-only (not a theme feature); the output
+  formats are defined in exampleSite/hugo.toml.
+*/ -}}
+# {{ site.Title }}
+{{ with site.Params.description }}
+> {{ . | plainify }}
+{{ end }}
+{{- with .Content }}
+{{ . | plainify | htmlUnescape | strings.TrimSpace }}
+{{ end }}
+{{- with .OutputFormats.Get "llmsfull" }}
+The full text of every page below, as Markdown: {{ .Permalink }}
+{{ end }}
+{{- range partial "llms-pages.html" . }}
+
+## {{ .section.Title }}
+{{ range .pages }}
+- [{{ .Title }}]({{ .Permalink }}){{ with partial "func/summary.html" (dict "page" . "length" 200) }}: {{ . }}{{ end }}
+{{- end }}
+{{- end }}

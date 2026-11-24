@@ -1,0 +1,23 @@
+{{- /*
+  llms-full.txt: the Markdown source of every public page (see
+  func/llms-pages.html for what is left out), one after another, so a
+  language model can read the whole site in one file.
+*/ -}}
+# {{ site.Title }}
+{{ with site.Params.description }}
+> {{ . | plainify }}
+{{ end }}
+{{- range partial "llms-pages.html" . }}
+{{- range .pages }}
+
+---
+
+# {{ .Title }}
+
+URL: {{ .Permalink }}
+{{ with .Description }}
+> {{ . }}
+{{ end }}
+{{ .RawContent | strings.TrimSpace }}
+{{- end }}
+{{- end }}

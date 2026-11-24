@@ -1,0 +1,28 @@
+{{- /*
+  Pages offered to language models (llms.txt, llms-full.txt), grouped by
+  top-level section (pages at the content root first, as "Pages"): sections
+  ordered by weight then title, pages by weight
+  for plain sections (e.g. docs) and newest first for main sections. Left
+  out: protected pages (their content is encrypted after the build), drafts,
+  and pages with robotsNoIndex or searchHidden.
+  Returns slice of dict: section (page), pages (slice).
+*/ -}}
+{{- $groups := slice }}
+{{- /* Pages at the content root (about, contact…) come first, as "Pages". */}}
+{{- $root := slice }}
+{{- range site.Home.RegularPages.ByWeight }}
+  {{- if or .Params.protected.enabled .Draft .Params.robotsNoIndex .Params.searchHidden }}{{ continue }}{{ end }}
+  {{- $root = $root | append . }}
+{{- end }}
+{{- with $root }}{{ $groups = $groups | append (dict "section" (dict "Title" (cond (hasPrefix site.Language.Lang "zh") "页面" "Pages")) "pages" .) }}{{ end }}
+{{- range $section := site.Sections.ByWeight }}
+  {{- $pages := .RegularPagesRecursive }}
+  {{- if in site.MainSections .Type }}{{ $pages = $pages.ByDate.Reverse }}{{ else }}{{ $pages = $pages.ByWeight }}{{ end }}
+  {{- $keep := slice }}
+  {{- range $pages }}
+    {{- if or .Params.protected.enabled .Draft .Params.robotsNoIndex .Params.searchHidden }}{{ continue }}{{ end }}
+    {{- $keep = $keep | append . }}
+  {{- end }}
+  {{- with $keep }}{{ $groups = $groups | append (dict "section" $section "pages" .) }}{{ end }}
+{{- end }}
+{{- return $groups }}
