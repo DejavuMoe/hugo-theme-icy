@@ -107,6 +107,7 @@
     #   cssURL = "none"     # default: the theme styles the comments; set Ecoku's CSS URL to use its own
     #   pageSize = 10
     #   theme = "auto"      # auto | light | dark
+    #   i18n = ""           # en | zh-CN | zh-Hant; default: from the page language
 
   # Analytics: provider "plausible" (Plausible CE) | "" (off). Pages opt out with `analytics = false`.
   [params.analytics]

@@ -29,6 +29,7 @@ Ecoku 是一个自托管的评论服务。配置好之后，评论会显示在�
 | `ecoku.cssURL` | `none` | `none` 使用主题的样式。设为网址则改用 Ecoku 自己的样式表。 |
 | `ecoku.pageSize` | `10` | 每页评论数，1 到 100。 |
 | `ecoku.theme` | `auto` | `auto` 跟随页面配色，`light` 或 `dark` 固定配色。 |
+| `ecoku.i18n` | 跟随页面语言 | 界面语言：`en`、`zh-CN` 或 `zh-Hant`。其他语言使用 Ecoku 站点的默认语言。 |
 
 - 页面可以在 front matter 中用 `comments = false` 关闭评论。
 - 评论按页面路径存储，例如 `/posts/my-post/`，所以请保持网址稳定。

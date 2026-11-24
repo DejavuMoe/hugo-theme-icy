@@ -15,6 +15,7 @@
                URL (e.g. <serverURL>/client/ecoku.css) to use Ecoku's own.
     pageSize   comments per page (1–100, default 10)
     theme      auto | light | dark (default auto: follows the page)
+    i18n       en | zh-CN | zh-Hant (default: from the page's language)
 */ -}}
 {{- $page := .page }}
 {{- $cfg := .cfg }}
@@ -23,6 +24,19 @@
 {{- end }}
 {{- $server := strings.TrimSuffix "/" $cfg.serverURL }}
 {{- $script := $cfg.scriptURL | default (printf "%s/client/ecoku-loader.js" $server) }}
+{{- /* Ecoku's interface language follows the page: en, zh-Hant or zh-CN.
+     Other languages use the Ecoku site's own default. */}}
+{{- $i18n := $cfg.i18n | default "" }}
+{{- if and $i18n (not (in (slice "en" "zh-CN" "zh-Hant") $i18n)) }}
+  {{- errorf "comments: params.comments.ecoku.i18n must be en, zh-CN or zh-Hant, got %q" $i18n }}
+{{- end }}
+{{- if not $i18n }}
+  {{- $locale := lower ($page.Language.Locale | default $page.Language.Lang) }}
+  {{- if hasPrefix $locale "en" }}{{ $i18n = "en" }}
+  {{- else if or (hasPrefix $locale "zh-hant") (in (slice "zh-tw" "zh-hk" "zh-mo") $locale) }}{{ $i18n = "zh-Hant" }}
+  {{- else if hasPrefix $locale "zh" }}{{ $i18n = "zh-CN" }}
+  {{- end }}
+{{- end }}
 {{- partial "assets/use.html" (dict "page" $page "feature" "comments") }}
 <div class="ecoku-shell" id="ecoku-comments" data-ecoku-comments data-comments-loader="{{ $script }}"
   aria-busy="false"
@@ -32,7 +46,8 @@
   data-page-title="{{ $page.Title }}"
   data-page-size="{{ $cfg.pageSize | default 10 }}"
   data-theme="{{ $cfg.theme | default "auto" }}"
-  data-css-url="{{ $cfg.cssURL | default "none" }}">
+  data-css-url="{{ $cfg.cssURL | default "none" }}"
+  {{- with $i18n }} data-i18n="{{ . }}"{{ end }}>
   <div class="comments-status" data-ecoku-loader hidden>
     <p data-ecoku-status></p>
     <button class="comments-retry" type="button" data-ecoku-retry hidden>{{ T "commentsRetry" }}</button>

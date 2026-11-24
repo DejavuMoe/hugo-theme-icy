@@ -156,13 +156,16 @@ ignoreLogs = ['icy-protected-unsealed']
   [params.footer]
     since = 2026
 
-  # Comments and analytics are off in the demo. To try them, point them at
-  # your own services:
-  # [params.comments]
-  #   provider = 'ecoku'
-  #   [params.comments.ecoku]
-  #     serverURL = 'https://comments.example.com'
-  #     siteId = 'example.com'
+  # Comments on the demo's own Ecoku site; it allows https://icy.zsh.moe
+  # and local previews on ports 1313/1314. A copy of this site needs its own
+  # Ecoku site (or remove this block).
+  [params.comments]
+    provider = 'ecoku'
+    [params.comments.ecoku]
+      serverURL = 'https://ecoku-dev.zsh.moe'
+      siteId = 'hugo-theme-icy'
+
+  # Analytics are off in the demo. To try them:
   # [params.analytics]
   #   provider = 'plausible'
   #   [params.analytics.plausible]

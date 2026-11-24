@@ -29,6 +29,7 @@ Ecoku is a self-hosted comment service. Comments appear at the end of every regu
 | `ecoku.cssURL` | `none` | `none` uses the theme's styles. Set a URL to use Ecoku's own stylesheet. |
 | `ecoku.pageSize` | `10` | Comments per page, 1 to 100. |
 | `ecoku.theme` | `auto` | `auto` follows the page's color scheme. `light` or `dark` fixes it. |
+| `ecoku.i18n` | from the page's language | Interface language: `en`, `zh-CN` or `zh-Hant`. Other languages use the Ecoku site's default. |
 
 - A page turns comments off with `comments = false` in its front matter.
 - Comments are stored by page path, such as `/posts/my-post/`, so keep URLs stable.
