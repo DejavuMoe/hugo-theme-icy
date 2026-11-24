@@ -39,6 +39,11 @@ runs:
 
     - name: Build, seal and verify
       shell: bash
+      env:
+        # Repository cards call the GitHub API; anonymous calls from shared
+        # runners hit the rate limit, and --panicOnWarning turns the fallback
+        # warning into a failure.
+        HUGO_GITHUB_TOKEN: ${{ github.token }}
       run: |
         set -euo pipefail
         hugo version
