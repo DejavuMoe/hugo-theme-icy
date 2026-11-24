@@ -2,8 +2,9 @@ name: Release
 
 # Pushing a signed version tag (v1.2.3) publishes a GitHub release titled
 # "Icy 1.2.3" whose notes are the tag's message. Start the message with the
-# notes themselves, not a title line:
-#   git tag -s v1.2.3 -F notes.md && git push origin v1.2.3
+# notes themselves, not a title line. --cleanup=verbatim keeps Markdown
+# headings, which Git would otherwise strip as comments:
+#   git tag -s v1.2.3 --cleanup=verbatim -F notes.md && git push origin v1.2.3
 on:
   push:
     tags: ["v*.*.*"]
