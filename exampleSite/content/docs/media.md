@@ -44,12 +44,12 @@ An image on a line of its own becomes a figure, with its title as the caption.
 
 If every image renders small and inline instead, add the Markdown settings from [Getting started](/docs/installation/#configure). A `{.class}` line after the image adds a class to the figure.
 
-An image inside a sentence is drawn at text height, like an icon. Hovering or tapping it shows an enlarged copy.
+An image inside a sentence is drawn at text height, which suits stickers and emoji. Hovering or tapping it shows it larger, with its alt text, above the line. [Smoji](https://smoji.zsh.moe/) has ready-made sets to pick from.
 
-A poppy ![Orange poppies](/posts/images-and-galleries/orange-flowers.webp) sits in this sentence.
+The build passed ![Grinning face](/posts/images-and-galleries/grin.webp) so I went for coffee.
 
 ```markdown
-A poppy ![Orange poppies](/posts/images-and-galleries/orange-flowers.webp) sits in this sentence.
+The build passed ![Grinning face](/posts/images-and-galleries/grin.webp) so I went for coffee.
 ```
 
 ## Image viewer {#viewer}

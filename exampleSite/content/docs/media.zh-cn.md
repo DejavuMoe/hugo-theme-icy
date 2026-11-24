@@ -44,12 +44,12 @@ Icy 在构建时读取图片尺寸，生成响应式 WebP 版本和模糊占位�
 
 如果所有图片都渲染成行内小图，请加上 [快速开始](/docs/installation/#configure) 里的 Markdown 设置。图片下一行的 `{.class}` 会给 figure 加上 class。
 
-夹在句子里的图片按文字高度绘制，像一个图标。悬停或点按时会显示放大的副本。
+夹在句子里的图片按文字高度绘制，适合插表情包。悬停或点按时，会在这一行上方显示它的大图和替代文本。现成的表情可以在 [Smoji](https://smoji.zsh.moe/) 里挑选。
 
-一朵虞美人 ![橙色虞美人](/posts/images-and-galleries/orange-flowers.webp) 夹在这句话里。
+构建通过了 ![咧嘴笑](/posts/images-and-galleries/grin.webp) 去喝杯咖啡。
 
 ```markdown
-一朵虞美人 ![橙色虞美人](/posts/images-and-galleries/orange-flowers.webp) 夹在这句话里。
+构建通过了 ![咧嘴笑](/posts/images-and-galleries/grin.webp) 去喝杯咖啡。
 ```
 
 ## 图片查看器 {#viewer}
