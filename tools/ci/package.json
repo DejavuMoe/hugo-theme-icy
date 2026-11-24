@@ -1,0 +1,16 @@
+{
+  "name": "icy-ci",
+  "private": true,
+  "type": "module",
+  "description": "Code checks for CI. The theme itself has no npm dependencies.",
+  "scripts": {
+    "lint": "cd ../.. && biome ci",
+    "html": "html-validate --config htmlvalidate.json \"../../exampleSite/public/**/*.html\"",
+    "lighthouse": "lhci autorun --config=lighthouserc.json; status=$?; node lighthouse-summary.mjs; exit $status"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.6.8",
+    "@lhci/cli": "0.16.1",
+    "html-validate": "11.21.1"
+  }
+}

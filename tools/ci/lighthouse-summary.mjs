@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Print the Lighthouse scores (median run per page) as a Markdown table, and
+ * Print the Lighthouse scores (one run per page) as a Markdown table, and
  * add it to the GitHub Actions job summary when there is one.
  */
 import { appendFileSync, readFileSync } from "node:fs";
@@ -15,7 +15,7 @@ const rows = manifest
   .map((run) => `| ${new URL(run.url).pathname} | ${categories.map((c) => score(run.summary[c])).join(" | ")} |`);
 
 const table = [
-  "### Lighthouse (mobile, median of 3 runs)",
+  "### Lighthouse (mobile)",
   "",
   `| Page | ${categories.map((c) => c.replace("-", " ")).join(" | ")} |`,
   `| --- | ${categories.map(() => "---:").join(" | ")} |`,

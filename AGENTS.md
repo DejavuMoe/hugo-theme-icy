@@ -6,8 +6,8 @@ Rules for AI agents and contributors working on **Icy**, a Hugo theme (MIT, http
 
 - Theme: `archetypes/`, `assets/`, `i18n/`, `layouts/`, `static/`, `hugo.toml` (defaults), `theme.toml`, `go.mod`.
 - `exampleSite/` — demo and documentation site (https://icy.zsh.moe/), deployed by Cloudflare Pages with `exampleSite/build.sh`. English `*.md`, Simplified Chinese `*.zh-cn.md` beside it. `content/docs/` is the reference, `content/posts/` the showcase. Its own `go.mod` keeps it out of Hugo Module downloads.
-- `tools/protect/` — `seal.mjs`, `verify.mjs`, `preview.mjs` for protected posts; `tools/ci/` — `budget.mjs` (size budgets), `i18n.mjs` (translation keys). Node standard library only.
-- `tests/` — test tooling (Playwright, axe, Biome, html-validate, Lighthouse CI); see `tests/README.md`. The only npm dependencies in the repository.
+- `tools/protect/` — `seal.mjs`, `verify.mjs`, `preview.mjs` for protected posts (Node standard library only).
+- `tools/ci/` — code checks: `budget.mjs` (size budgets) and `i18n.mjs` (translation keys) use the Node standard library; Biome, html-validate and Lighthouse CI come from its `package.json`, the only npm dependencies in the repository.
 - `.github/` — CI (`ci.yml`), weekly link check, releases from version tags, Dependabot, issue templates.
 - `images/` — `screenshot.png` (1500×1000) and `tn.png` (900×600), the same capture of the demo home page.
 
@@ -17,9 +17,12 @@ Rules for AI agents and contributors working on **Icy**, a Hugo theme (MIT, http
 hugo server -s exampleSite                               # live preview
 hugo --minify --panicOnWarning -s exampleSite -d <tmp>   # check build (no --gc)
 node tools/protect/seal.mjs <tmp> && node tools/protect/verify.mjs <tmp>
+node tools/ci/budget.mjs <tmp> && node tools/ci/i18n.mjs  # size budgets, translation keys
+npm ci --prefix tools/ci                                 # once
+npm run --prefix tools/ci lint                           # Biome: JavaScript and CSS
 ```
 
-After a change: build with `--panicOnWarning`, seal and verify, then run the checks in `tests/README.md` (CI runs them on every push). The browser checks screenshot the key pages in light and dark at 390px and 1280px; look at the ones you changed.
+After a change: build with `--panicOnWarning`, seal and verify, run the checks above, then check the pages in light and dark at ~390px and ~1280px. CI runs the same checks, validates the HTML of every page and records Lighthouse scores.
 
 ## Principles
 

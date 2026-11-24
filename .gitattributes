@@ -4,5 +4,5 @@
 # Left out of GitHub's source archives ("Download ZIP" and release tarballs):
 # a theme install needs none of these.
 /exampleSite export-ignore
-/tests export-ignore
+/tools/ci export-ignore
 /.github export-ignore

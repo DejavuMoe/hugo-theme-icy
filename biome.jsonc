@@ -6,7 +6,6 @@
       "assets/**/*.js",
       "assets/**/*.css",
       "tools/**/*.mjs",
-      "tests/**/*.mjs",
       "!assets/js/vendor"
     ]
   },

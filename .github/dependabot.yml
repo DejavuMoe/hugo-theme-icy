@@ -10,13 +10,13 @@ updates:
       actions:
         patterns: ["*"]
 
-  # Test tooling only; the theme itself has no npm dependencies.
+  # CI tooling only; the theme itself has no npm dependencies.
   - package-ecosystem: npm
-    directory: /tests
+    directory: /tools/ci
     schedule:
       interval: weekly
     cooldown:
       default-days: 7
     groups:
-      test-tooling:
+      ci-tooling:
         patterns: ["*"]

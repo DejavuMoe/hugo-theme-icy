@@ -19,9 +19,7 @@ Thumbs.db
 CLAUDE.local.md
 .claude/settings.local.json
 
-# Test tooling (tests/)
-/tests/node_modules/
-/tests/results/
-/tests/report/
-/tests/.lighthouseci/
-/tests/lighthouse/
+# CI tooling (tools/ci/)
+/tools/ci/node_modules/
+/tools/ci/.lighthouseci/
+/tools/ci/lighthouse/
