@@ -128,7 +128,7 @@ layout = 'friends'
 - 头像裁成 96px。远程头像在构建时下载，读者不会访问原始主机。
 - 没有头像或下载失败时，显示名字的第一个字。
 - 缺少 `name` 或 `url`，或网址不是 `http(s)`，构建会失败。
-- 设置 `params.friends.ref` 可以给每个链接加上 `ref` 查询参数。
+- 设置 `params.friends.ref` 可以给每个链接加上 `ref` 查询参数，例如 `?ref=https://example.com`。留空则不改动链接。本来就带 `ref` 的链接保留它自己的值。
 - 如果这个页面是栏目，它的子页面会列在友链下方。
 
 ## 更新日志 {#changelog}

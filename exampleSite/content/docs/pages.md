@@ -128,7 +128,7 @@ The page body appears above the list. List the sites in the data file:
 - Avatars are cropped to 96px. Remote avatars are downloaded at build time, so readers never contact the original host.
 - Without an avatar, or when the download fails, the entry shows the first letter of the name.
 - A missing `name` or `url`, or a URL that is not `http(s)`, fails the build.
-- Set `params.friends.ref` to add a `ref` query parameter to every link.
+- Set `params.friends.ref` to add a `ref` query parameter to every link, such as `?ref=https://example.com`. Leave it empty to keep the links as they are. A link that already has a `ref` keeps its own.
 - If the page is a section, its child pages are listed below the friends.
 
 ## Changelog {#changelog}

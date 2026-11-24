@@ -40,7 +40,11 @@
       {{- /* The query goes before any #fragment. */}}
       {{- $base := index (split $f.url "#") 0 }}
       {{- $fragment := cond (ne $base $f.url) (printf "#%s" $u.Fragment) "" }}
-      {{- $href = printf "%s%sref=%s%s" $base (cond (strings.Contains $base "?") "&" "?") (urlquery $ref) $fragment }}
+      {{- /* ":" and "/" are allowed as they are in a query (RFC 3986), so
+           ref=https://example.com stays readable instead of https%3A%2F%2F…;
+           everything else that could end the value is still escaped. */}}
+      {{- $value := urlquery $ref | replaceRE "%3[Aa]" ":" | replaceRE "%2[Ff]" "/" }}
+      {{- $href = printf "%s%sref=%s%s" $base (cond (strings.Contains $base "?") "&" "?") $value $fragment }}
     {{- end }}
 
     {{- $avatar := "" }}
