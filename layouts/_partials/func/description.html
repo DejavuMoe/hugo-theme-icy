@@ -3,11 +3,15 @@
   Twitter Card and JSON-LD: front matter description, else the summary of a
   regular page, else the site description.  Params: page. Returns string.
 */ -}}
-{{- if .Params.protected.enabled }}{{ return (T "protectedDescription") }}{{ end }}
 {{- $d := "" }}
-{{- if .IsPage }}
-  {{- $d = partial "func/summary.html" (dict "page" .) }}
+{{- if .Params.protected.enabled }}
+  {{- $d = T "protectedDescription" }}
 {{- else }}
-  {{- $d = .Description }}
+  {{- if .IsPage }}
+    {{- $d = partial "func/summary.html" (dict "page" .) }}
+  {{- else }}
+    {{- $d = .Description }}
+  {{- end }}
+  {{- $d = or $d site.Params.description "" | plainify | strings.TrimSpace }}
 {{- end }}
-{{- return (or $d site.Params.description "" | plainify | strings.TrimSpace) }}
+{{- return $d }}

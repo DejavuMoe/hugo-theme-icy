@@ -23,7 +23,7 @@ After a change: build with `--panicOnWarning`, seal and verify, then check the p
 
 - CSS before JavaScript; every page works without JS. No layout shift after first paint.
 - Site-specific values are params; site code goes in `extend/head.html`, `extend/footer.html` or template overrides, never hard-coded.
-- Reuse `func/*` partials; validate shortcode params with `func/shortcode-params.html`.
+- Reuse `func/*` partials; validate shortcode params with `func/shortcode-params.html`. A partial that returns a value has exactly one `return`, at its end: older supported Hugo releases (0.164 and 0.165 at least) fail on an early `return`.
 - Load a feature's CSS/JS only on pages that use it. Optional behaviours are params: a site-wide default plus a per-use override.
 - Build-time network fetches warn with id `icy-remote-fetch` and fall back. Secrets come from environment variables only.
 - Support multilingual sites: per-language params, menus and resources.
