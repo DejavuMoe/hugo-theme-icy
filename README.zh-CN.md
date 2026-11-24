@@ -48,7 +48,7 @@ hugo server
 
 ## 许可
 
-[MIT](LICENSE) © 2026 Dejavu Moe。
+[MIT](LICENSE) © 2026 Dejavu Moe。`exampleSite/content/` 里文档和演示文章的文字采用 [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hans) 许可，演示媒体沿用各自的许可，列在 `exampleSite/data/credits.yaml` 里。
 
 随附的第三方组件：
 

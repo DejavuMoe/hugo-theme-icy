@@ -48,7 +48,7 @@ Everything else is in the docs: **<https://icy.zsh.moe/docs/>**. The [demo site]
 
 ## License
 
-[MIT](LICENSE) © 2026 Dejavu Moe.
+[MIT](LICENSE) © 2026 Dejavu Moe. The text of the documentation and demo posts in `exampleSite/content/` is licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/); the demo media keep their own licenses, listed in `exampleSite/data/credits.yaml`.
 
 Bundled third-party components:
 

@@ -122,9 +122,12 @@ Icy 读取两个菜单：页头的 `main` 和每页底部的 `footer`。每一�
 
 {{< code-toggle file="hugo" >}}
 [params.article.copyright]
-  license = 'CC BY 4.0'
-  url = 'https://creativecommons.org/licenses/by/4.0/'
+  license = 'CC BY-NC 4.0'
+  url = 'https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hans'
+  note = '转载或引用本文时请遵守许可协议，注明出处，不得用于商业用途。'
 {{< /code-toggle >}}
+
+多语言站点可以把 `note` 写进各语言自己的 `params.article.copyright`，卡片就会跟着页面语言切换。协议页面有译本时，`url` 也可以这样分开写。见 [语言](/docs/multilingual/#languages)。
 
 ### 页脚 {#footer}
 

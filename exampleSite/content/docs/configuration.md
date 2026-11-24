@@ -122,9 +122,12 @@ Set `license` to end every post in the main sections with a copyright card: titl
 
 {{< code-toggle file="hugo" >}}
 [params.article.copyright]
-  license = 'CC BY 4.0'
-  url = 'https://creativecommons.org/licenses/by/4.0/'
+  license = 'CC BY-NC 4.0'
+  url = 'https://creativecommons.org/licenses/by-nc/4.0/'
+  note = 'When you repost or quote this post, follow the license: credit the source and make no commercial use.'
 {{< /code-toggle >}}
+
+On a multilingual site, put `note` in each language's `params.article.copyright` and the card follows the page language. Do the same with `url` when the license page has a translation. See [Languages](/docs/multilingual/#languages).
 
 ### Footer {#footer}
 
