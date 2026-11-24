@@ -1,0 +1,20 @@
+name: Feature request
+description: Suggest something the theme could do.
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Icy stays small on purpose: CSS before JavaScript, every page works without JavaScript, and site-specific code goes in your own `layouts/` and `assets/`. Check [Customization](https://icy.zsh.moe/docs/customization/) first: what you need may already be possible there. You can write in English or Chinese.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What you want to do
+      description: The problem you are trying to solve, for you or your readers.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Your idea
+      description: How the theme could help, and anything you tried. Examples from other sites are welcome.

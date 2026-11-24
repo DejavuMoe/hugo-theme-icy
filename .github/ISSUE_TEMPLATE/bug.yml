@@ -1,0 +1,41 @@
+name: Bug report
+description: Something in the theme doesn't work as the docs say.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. Check the [FAQ](https://icy.zsh.moe/docs/faq/) first; many problems are a missing setting. You can write in English or Chinese.
+        Security problems: please don't open an issue, report them privately (see SECURITY.md).
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what you saw instead. Screenshots help.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How to reproduce
+      description: The smallest configuration, front matter or Markdown that shows the problem, or a link to a repository.
+      render: markdown
+  - type: input
+    id: theme
+    attributes:
+      label: Icy version
+      description: A release (v1.0.0) or a commit hash.
+    validations:
+      required: true
+  - type: input
+    id: hugo
+    attributes:
+      label: Hugo version
+      description: The output of `hugo version`.
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and system
+      description: For problems in the page, such as Safari 18 on iOS 18, or Firefox 140 on Windows 11.

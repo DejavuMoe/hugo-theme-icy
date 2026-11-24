@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://icy.zsh.moe/docs/
+    about: Installation, configuration, shortcodes and deployment.
+  - name: Report a security vulnerability
+    url: https://github.com/DejavuMoe/hugo-theme-icy/security/advisories/new
+    about: Report it privately, not in a public issue.

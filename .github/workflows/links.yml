@@ -1,0 +1,41 @@
+name: Links
+
+# External sites change on their own schedule, so links are checked weekly
+# rather than on every push.
+on:
+  schedule:
+    - cron: "17 3 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  links:
+    name: Check links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+      - uses: ./.github/actions/build-site
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: .lycheecache
+          key: lychee-${{ github.run_id }}
+          restore-keys: lychee-
+      - uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
+        with:
+          args: >-
+            --no-progress
+            --cache --max-cache-age 3d
+            --max-concurrency 8
+            --accept 200..=299,403,429
+            --root-dir "${{ github.workspace }}/exampleSite/public"
+            --exclude "^https?://(localhost|127\.0\.0\.1|example\.(com|org))"
+            --exclude "^https://(comments|plausible)\.example\.com"
+            "exampleSite/public/**/*.html"
+          fail: true

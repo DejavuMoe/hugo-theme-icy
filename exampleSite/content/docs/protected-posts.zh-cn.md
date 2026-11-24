@@ -109,4 +109,6 @@ ignoreLogs = ['icy-protected-unsealed']
 
 这是在浏览器端隐藏内容，不是服务器端的访问控制。密文是公开的，弱密码可以被离线猜出，解锁文章的人也能复制内容。密码不会离开浏览器，也不会被保存。
 
+密码写在文章的 front matter 里，能看到站点源码的人也就能看到密码。请把源码仓库设为私有，否则就不要在这个站点上使用受保护文章。
+
 加密格式和密码学细节见作者的文章 [Hugo 实现页面加密](https://blog.dejavu.moe/posts/hugo-protected-leaf-bundle-encryption/)。

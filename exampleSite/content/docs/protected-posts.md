@@ -108,4 +108,6 @@ ignoreLogs = ['icy-protected-unsealed']
 
 This hides content in the browser; it is not access control on the server. The encrypted file is public, so a weak password can be guessed offline, and anyone who unlocks the post can copy it. The password never leaves the browser and is not stored.
 
+The password is written in the post's front matter, so anyone who can read your site's source can read it too. Keep the source repository private, or don't protect posts on that site.
+
 The format and the cryptography are explained in the author's article [Hugo 实现页面加密](https://blog.dejavu.moe/posts/hugo-protected-leaf-bundle-encryption/) (in Chinese).
