@@ -1,0 +1,6 @@
+{{- /*
+  Browser targets for css.Build, shared by every stylesheet the theme builds.
+  Roughly "Baseline widely available"; raise these as the baseline moves.
+  Returns slice.
+*/ -}}
+{{- return (slice "chrome123" "edge123" "firefox120" "ios17.5" "safari17.5") }}
