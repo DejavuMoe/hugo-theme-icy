@@ -7,16 +7,15 @@
   On pages with Live Photos the stage also holds one Live Photo (still, clip
   and LIVE button): viewer.js shows it for stills that carry data-live-video,
   and live-photo.js plays it like any other.
-  viewer.js creates the two <img> elements (the image and the Live Photo
-  still): they only exist once they can have a source.
 */ -}}
 {{- $features := .Store.Get "icyFeatures" | default dict }}
 <dialog class="viewer" data-viewer-dialog closedby="any" aria-label="{{ T "imageViewer" }}">
   <figure class="viewer-stage">
+    <img class="viewer-image" alt="" decoding="async">
     {{- if index $features "livephoto" }}
     <div class="viewer-live live-photo" data-live-photo data-viewer-live hidden>
       <div class="live-photo-frame">
-        <span class="live-photo-still"></span>
+        <span class="live-photo-still"><img alt="" decoding="async" draggable="false"></span>
         <video class="live-photo-video" muted playsinline preload="none"
           disablepictureinpicture disableremoteplayback aria-hidden="true" tabindex="-1"></video>
         {{ partial "media/live-photo-badge.html" . }}

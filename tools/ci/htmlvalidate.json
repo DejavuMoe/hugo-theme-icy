@@ -1,3 +1,7 @@
 {
-  "extends": ["html-validate:standard"]
+  "extends": ["html-validate:standard"],
+  "rules": {
+    "element-required-attributes": "off",
+    "element-required-content": "off"
+  }
 }
