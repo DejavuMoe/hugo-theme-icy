@@ -60,6 +60,14 @@ body {
   text-wrap-style: pretty;
 }
 
+/* Chinese and Japanese text fills its lines. Safari's `pretty` rebalances
+   the whole paragraph (Chromium only the last lines), which leaves CJK body
+   text visibly ragged and short lists half-width on phones. */
+:where(p, li, dd, figcaption, blockquote):lang(zh),
+:where(p, li, dd, figcaption, blockquote):lang(ja) {
+  text-wrap-style: auto;
+}
+
 :where(a) {
   color: var(--color-accent);
   text-decoration-thickness: from-font;
