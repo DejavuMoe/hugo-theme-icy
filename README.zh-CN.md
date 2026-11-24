@@ -2,9 +2,9 @@
 
 一个安静、快速的 Hugo 个人博客主题，只用原生 HTML、CSS 和 JavaScript。
 
-[English](README.md) · 简体中文
+[English](https://github.com/DejavuMoe/hugo-theme-icy/blob/master/README.md) · 简体中文
 
-![Icy 截图](images/screenshot.png)
+![Icy 截图](https://raw.githubusercontent.com/DejavuMoe/hugo-theme-icy/master/images/screenshot.png)
 
 ## 功能
 
@@ -50,9 +50,9 @@ hugo server
 
 ## 许可
 
-[MIT](LICENSE) © 2026 Dejavu Moe。`exampleSite/content/` 里文档和演示文章的文字采用 [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hans) 许可，演示媒体沿用各自的许可，列在 `exampleSite/data/credits.yaml` 里。
+[MIT](https://github.com/DejavuMoe/hugo-theme-icy/blob/master/LICENSE) © 2026 Dejavu Moe。`exampleSite/content/` 里文档和演示文章的文字采用 [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/deed.zh-hans) 许可，演示媒体沿用各自的许可，列在 `exampleSite/data/credits.yaml` 里。
 
 随附的第三方组件：
 
-- Tabler Icons — MIT — [许可证](assets/icons/tabler.LICENSE)
-- Pele，含一个 Lucide 图标 — MIT 与 ISC — [许可证](assets/js/vendor/pele.LICENSE)
+- Tabler Icons — MIT — [许可证](https://github.com/DejavuMoe/hugo-theme-icy/blob/master/assets/icons/tabler.LICENSE)
+- Pele，含一个 Lucide 图标 — MIT 与 ISC — [许可证](https://github.com/DejavuMoe/hugo-theme-icy/blob/master/assets/js/vendor/pele.LICENSE)

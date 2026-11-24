@@ -2,9 +2,9 @@
 
 A quiet, fast Hugo theme for personal blogs, made of plain HTML, CSS and JavaScript.
 
-English · [简体中文](README.zh-CN.md)
+English · [简体中文](https://github.com/DejavuMoe/hugo-theme-icy/blob/master/README.zh-CN.md)
 
-![Icy screenshot](images/screenshot.png)
+![Icy screenshot](https://raw.githubusercontent.com/DejavuMoe/hugo-theme-icy/master/images/screenshot.png)
 
 ## Features
 
@@ -50,9 +50,9 @@ Everything else is in the docs: **<https://icy.zsh.moe/docs/>**. The [demo site]
 
 ## License
 
-[MIT](LICENSE) © 2026 Dejavu Moe. The text of the documentation and demo posts in `exampleSite/content/` is licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/); the demo media keep their own licenses, listed in `exampleSite/data/credits.yaml`.
+[MIT](https://github.com/DejavuMoe/hugo-theme-icy/blob/master/LICENSE) © 2026 Dejavu Moe. The text of the documentation and demo posts in `exampleSite/content/` is licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/); the demo media keep their own licenses, listed in `exampleSite/data/credits.yaml`.
 
 Bundled third-party components:
 
-- Tabler Icons — MIT — [license](assets/icons/tabler.LICENSE)
-- Pele, with one Lucide icon — MIT and ISC — [license](assets/js/vendor/pele.LICENSE)
+- Tabler Icons — MIT — [license](https://github.com/DejavuMoe/hugo-theme-icy/blob/master/assets/icons/tabler.LICENSE)
+- Pele, with one Lucide icon — MIT and ISC — [license](https://github.com/DejavuMoe/hugo-theme-icy/blob/master/assets/js/vendor/pele.LICENSE)
