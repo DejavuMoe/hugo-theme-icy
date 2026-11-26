@@ -129,6 +129,31 @@ Set `license` to end every post in the main sections with a copyright card: titl
 
 On a multilingual site, put `note` in each language's `params.article.copyright` and the card follows the page language. Do the same with `url` when the license page has a translation. See [Languages](/docs/multilingual/#languages).
 
+#### QR codes {#qrcodes}
+
+Add `article.qrcodes` to put small buttons above the copyright card, such as a WeChat official account and a tip code. Hovering, clicking or tapping a button shows its square image, published as it is. The [Showcase](/posts/) posts have two.
+
+| Parameter | Default | Description |
+| --- | --- | --- |
+| `icon` | `'qrcode'` | An [icon](/docs/customization/#icons). The theme also has `wechat` and `coffee`. |
+| `label` | none | Button text. Leave it empty for a round icon-only button. |
+| `image` | none | A square image in `assets/` or `static/`, or a URL. Required. |
+| `caption` | none | A line under the image. Markdown. Required without a `label`: it names the button for screen readers. |
+
+{{< code-toggle file="hugo" >}}
+[[params.article.qrcodes]]
+  icon = 'wechat'
+  label = 'WeChat'
+  image = 'qrcodes/wechat.png'
+  caption = 'Scan to follow'
+[[params.article.qrcodes]]
+  icon = 'coffee'
+  label = 'Tip'
+  image = 'qrcodes/tip.png'
+{{< /code-toggle >}}
+
+On a multilingual site, put the list in each language's params, with labels in that language.
+
 ### Footer {#footer}
 
 The footer is centered, one item per line: the [footer menu](#menus), `© <since>–<this year> <author.name>`, "Powered by Hugo & Icy", the credit and your own text.
@@ -193,6 +218,7 @@ Page-level keys. Where a site parameter does the same thing, the page key overri
 | `original` | `false` marks a repost and hides the card. |
 | `copyright` | `false` hides the card. |
 | `license` | License for this post only. |
+| `qrcodes` | `false` hides the [QR code buttons](#qrcodes). |
 
 ### Visibility {#visibility}
 

@@ -129,6 +129,31 @@ Icy 读取两个菜单：页头的 `main` 和每页底部的 `footer`。每一�
 
 多语言站点可以把 `note` 写进各语言自己的 `params.article.copyright`，卡片就会跟着页面语言切换。协议页面有译本时，`url` 也可以这样分开写。见 [语言](/docs/multilingual/#languages)。
 
+#### 二维码 {#qrcodes}
+
+添加 `article.qrcodes` 后，版权卡片上方会出现几个小按钮，比如微信公众号和打赏码。鼠标悬停、点击或轻触按钮，就会显示它的方形图片，图片原样发布。[示例](/posts/) 里的文章有两个。
+
+| 参数 | 默认值 | 说明 |
+| --- | --- | --- |
+| `icon` | `'qrcode'` | 一个 [图标](/docs/customization/#icons)。主题还自带 `wechat` 和 `coffee`。 |
+| `label` | 无 | 按钮文字。留空时是只有图标的圆形按钮。 |
+| `image` | 无 | `assets/` 或 `static/` 中的方形图片，也可以是 URL，必填。 |
+| `caption` | 无 | 图片下方的一行文字，支持 Markdown。没有 `label` 时必填，读屏软件用它称呼按钮。 |
+
+{{< code-toggle file="hugo" >}}
+[[params.article.qrcodes]]
+  icon = 'wechat'
+  label = '公众号'
+  image = 'qrcodes/wechat.png'
+  caption = '扫码关注'
+[[params.article.qrcodes]]
+  icon = 'coffee'
+  label = '打赏'
+  image = 'qrcodes/tip.png'
+{{< /code-toggle >}}
+
+多语言站点可以把这个列表写进各语言自己的 params，按钮文字用对应的语言。
+
 ### 页脚 {#footer}
 
 页脚居中，每行一项：[页脚菜单](#menus)、`© <since>–<今年> <author.name>`、“Powered by Hugo & Icy”、致谢和你自己的文字。
@@ -193,6 +218,7 @@ Icy 读取两个菜单：页头的 `main` 和每页底部的 `footer`。每一�
 | `original` | `false` 表示转载，并隐藏卡片。 |
 | `copyright` | `false` 隐藏卡片。 |
 | `license` | 只用于这篇文章的许可协议。 |
+| `qrcodes` | `false` 隐藏 [二维码按钮](#qrcodes)。 |
 
 ### 可见性 {#visibility}
 
