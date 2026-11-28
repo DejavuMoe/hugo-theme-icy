@@ -150,3 +150,10 @@
     action = "prefetch"   # prefetch | prerender
     eagerness = "moderate"
 
+  # WeChat Official Account export, in local preview only: under `hugo server`,
+  # add #wechat to the address of an article to copy it for the WeChat editor.
+  # A published site is never affected.
+  [params.wechat]
+    enable = false
+    # baseURL = ""        # the public address of the site, to list links to its own pages
+

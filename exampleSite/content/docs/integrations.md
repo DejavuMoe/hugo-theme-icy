@@ -1,6 +1,6 @@
 +++
 title = 'Integrations'
-description = 'Add comments and analytics, and tune search engine metadata, robots.txt and feeds.'
+description = 'Add comments and analytics, tune search engine metadata, robots.txt and feeds, and copy posts to WeChat.'
 weight = 70
 date = 2026-11-24
 images = ['covers/integrations.webp']
@@ -157,3 +157,38 @@ Hugo writes a feed for the home page, each section and each term. The home feed 
 - Full-text items drop buttons and player controls, and make links absolute so they work in feed readers.
 
 With full text, links in your posts reach the feeds: never [link to a protected post](/docs/protected-posts/#public).
+
+## WeChat Official Account {#wechat}
+
+Copy a post into the WeChat Official Account editor with the look it has on your site. This works in the local preview only: a published site gets no markup, styles or scripts for it.
+
+{{< code-toggle file="hugo" >}}
+[params.wechat]
+  enable = true
+  baseURL = 'https://example.com/'
+{{< /code-toggle >}}
+
+| Parameter | Default | Description |
+| --- | --- | --- |
+| `enable` | `false` | Turn the export on under `hugo server`. |
+| `baseURL` | None | The public address of your site. Links to your own pages are listed with it; without it they become plain text. |
+
+1. Run `hugo server` and open a post.
+2. Add `#wechat` to the end of its address.
+3. Check the preview on a desktop, tablet and phone screen, in light and dark, then select **Copy article**.
+4. Paste into the WeChat editor.
+5. Upload each file in the list at the line that names it, then delete that line.
+
+WeChat keeps only part of a web page, so the copy differs from the post:
+
+- **Images, audio and video** are not copied. A line with the file name marks the place of each one.
+- **Diagrams** become transparent PNG files to download and upload. Their tones read on WeChat's white ground and on its dark one.
+- **Links** work only inside WeChat. Other links keep their text, get a number, and are listed with their addresses at the end.
+- **Code** has no font of its own: WeChat asks for no font family, so each device shows code in its own monospace font.
+- **Wide tables** scroll sideways on a phone instead of squeezing their columns.
+- **Tabs and collapsed sections** are shown in full. A live photo keeps its still image, and a YouTube video becomes a reference to its address.
+- **Dark mode** is WeChat's own: it recolors every article and an author cannot style it. The dark preview runs the same conversion, so it shows what readers get.
+
+The copy follows WeChat's [rules for editor content](https://github.com/wechatjs/verify-article-structure-spec), and the three preview screens are the widths its own check measures.
+
+The words written into the copy, such as "Image" and "References", follow the page's language: see [Interface strings](/docs/customization/#strings). The look of the copy comes from the rules under `.prose[data-wechat]`; change it in [your own CSS](/docs/customization/#custom-css). Protected posts cannot be exported.

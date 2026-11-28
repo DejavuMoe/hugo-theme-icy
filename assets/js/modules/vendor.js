@@ -3,10 +3,12 @@
  * scripts of the page's features in the #icy-vendor JSON block (fingerprinted
  * URL and Subresource Integrity hash). loadVendor(name) inserts a feature's
  * scripts once, in order, and resolves when the last one has run.
+ * vendorScripts(name) only lists them, for a module that loads a script
+ * somewhere else (the WeChat preview frame).
  */
 const loading = new Map();
 
-function scriptsFor(name) {
+export function vendorScripts(name) {
   try {
     const data = JSON.parse(document.getElementById("icy-vendor")?.textContent || "{}");
     return Array.isArray(data[name]) ? data[name] : [];
@@ -31,7 +33,7 @@ function insert({ src, integrity }) {
 
 export function loadVendor(name) {
   if (!loading.has(name)) {
-    const scripts = scriptsFor(name);
+    const scripts = vendorScripts(name);
     loading.set(
       name,
       scripts.length

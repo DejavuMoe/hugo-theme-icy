@@ -1,0 +1,102 @@
+{{- /*
+  WeChat Official Account export panel (assets/js/modules/wechat.js).
+
+  page.html renders this only under `hugo server` on a site that set
+  params.wechat.enable: a published site carries none of it, neither markup
+  nor assets. Opening an article with #wechat in its address shows the panel:
+  a preview of the article as the WeChat editor keeps it (on a desktop,
+  tablet or phone screen, in light or dark mode), a button to copy it, and
+  the files to upload by hand.
+
+  params.wechat.baseURL — the site's public address. Under `hugo server` a
+  page only knows localhost, so links to the site's own pages are listed
+  with this address; without it they become plain text.
+
+  The words written into the copied article (image, references…) come from
+  i18n, in the page's language.
+  Context: the page.
+*/ -}}
+{{- $wechat := site.Params.wechat | default dict }}
+{{- $baseURL := $wechat.baseURL | default "" | string | strings.TrimSpace }}
+{{- if and $baseURL (not (findRE `^https?://[^/\s]+` $baseURL)) }}
+  {{- errorf "params.wechat.baseURL must be the site's public address (https://…), got %q" $baseURL }}
+{{- end }}
+{{- $slug := "post" }}
+{{- with .File }}{{ $slug = .ContentBaseName | urlize | default "post" }}{{ end }}
+{{- partial "assets/use.html" (dict "page" . "feature" "wechat") }}
+{{- $strings := dict
+  "image" (T "wechatImage")
+  "video" (T "wechatVideo")
+  "audio" (T "wechatAudio")
+  "diagram" (T "wechatDiagram")
+  "references" (T "wechatReferences")
+  "copy" (T "wechatCopy")
+  "copied" (T "wechatCopied")
+  "copiedHint" (T "wechatCopiedHint")
+  "copyFailed" (T "wechatCopyFailed")
+  "column" (T "wechatColumn")
+  "download" (T "wechatDownload")
+  "diagramPending" (T "wechatDiagramPending")
+  "diagramReady" (T "wechatDiagramReady")
+  "diagramFailed" (T "wechatDiagramFailed")
+  "noteLinks" (T "wechatNoteLinks")
+  "noteInternalLinks" (T "wechatNoteInternalLinks")
+  "noteEmbeds" (T "wechatNoteEmbeds")
+  "noteMedia" (T "wechatNoteMedia")
+  "noteLive" (T "wechatNoteLive")
+  "noteExpanded" (T "wechatNoteExpanded")
+}}
+{{- /* tabindex: wechat.js gives the opened panel the focus, not its first button. */}}
+<dialog class="wechat" data-wechat tabindex="-1" aria-labelledby="wechat-title" data-base-url="{{ $baseURL }}" data-slug="{{ $slug }}">
+  <header class="wechat-bar">
+    <h2 class="wechat-title" id="wechat-title">{{ partial "icon.html" "wechat" }}{{ T "wechatTitle" }}</h2>
+    {{- /* The three screens WeChat's own layout check measures: wechat.js holds the widths. */}}
+    <div class="wechat-switch" role="group" aria-label="{{ T "wechatView" }}">
+      <button type="button" data-wechat-view="desktop" aria-pressed="true">{{ T "wechatDesktop" }}</button>
+      <button type="button" data-wechat-view="tablet" aria-pressed="false">{{ T "wechatTablet" }}</button>
+      <button type="button" data-wechat-view="phone" aria-pressed="false">{{ T "wechatPhone" }}</button>
+    </div>
+    <div class="wechat-switch wechat-schemes" role="group" aria-label="{{ T "wechatScheme" }}">
+      <button type="button" data-wechat-scheme="light" aria-pressed="true">{{ partial "icon.html" "sun" }}<span>{{ T "scheme_light" }}</span></button>
+      <button type="button" data-wechat-scheme="dark" aria-pressed="false">{{ partial "icon.html" "moon" }}<span>{{ T "scheme_dark" }}</span></button>
+    </div>
+    <button class="wechat-copy" type="button" data-wechat-copy>
+      {{- partial "icon.html" (dict "name" "copy" "class" "wechat-copy-idle") -}}
+      {{- partial "icon.html" (dict "name" "check" "class" "wechat-copy-done") -}}
+      {{- /* All three labels share one cell, so the button is as wide as the longest and never changes size. */}}
+      <span class="wechat-copy-label">
+        <span data-wechat-copy-label>{{ T "wechatCopy" }}</span>
+        <span aria-hidden="true">{{ T "wechatCopied" }}</span>
+        <span aria-hidden="true">{{ T "wechatCopyFailed" }}</span>
+      </span>
+    </button>
+    {{- /* A dialog form closes the dialog natively; no script needed. */}}
+    <form method="dialog">
+      <button class="wechat-close">{{ partial "icon.html" "close" }}<span class="visually-hidden">{{ T "wechatClose" }}</span></button>
+    </form>
+  </header>
+  <div class="wechat-body">
+    <div class="wechat-preview">
+      <p class="wechat-width numeric" data-wechat-width></p>
+      <div class="wechat-device" data-wechat-device>
+        <iframe class="wechat-frame" data-wechat-frame title="{{ T "wechatPreview" }}"></iframe>
+      </div>
+    </div>
+    <aside class="wechat-side">
+      <section class="wechat-section">
+        <h3 class="wechat-heading">{{ T "wechatUploads" }}</h3>
+        <p class="wechat-hint" data-wechat-uploads-hint>{{ T "wechatUploadsHint" }}</p>
+        <p class="wechat-hint" data-wechat-uploads-empty hidden>{{ T "wechatUploadsEmpty" }}</p>
+        <ol class="wechat-uploads" role="list" data-wechat-uploads></ol>
+      </section>
+      <section class="wechat-section" data-wechat-notes-section hidden>
+        <h3 class="wechat-heading">{{ T "wechatNotes" }}</h3>
+        <ul class="wechat-notes" role="list" data-wechat-notes></ul>
+      </section>
+    </aside>
+  </div>
+  <p class="visually-hidden" role="status" data-wechat-status></p>
+  <template data-wechat-icon="video">{{ partial "icon.html" "play" }}</template>
+  <template data-wechat-icon="audio">{{ partial "icon.html" "music" }}</template>
+  {{ printf `<script type="application/json" id="wechat-strings">%s</script>` ($strings | jsonify) | safeHTML }}
+</dialog>

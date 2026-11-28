@@ -4,6 +4,7 @@ description = 'Icy 主题的重要版本。'
 layout = 'changelog'
 searchHidden = true
 changes = [
+  { date = 2026-11-28, title = '微信公众号排版', summary = '本地预览时，在文章地址后加上 `#wechat`，就能把文章复制到微信公众号编辑器，并预览三种屏幕下浅色和深色的效果。见 [文档](/docs/integrations/#wechat)。' },
   { date = 2026-11-24, title = '首次公开发布', summary = 'Icy 1.0 发布，这个双语站点就是它的 [文档](/docs/)。字体可按语言设置，站内链接直接写站点路径，自己的代码放进 `extend` 局部模板。' },
   { date = 2026-10-09, title = 'Pele 图表', summary = '`pele` 代码块用 Mermaid 语法渲染图表，**只在** 含有图表的页面加载。' },
   { date = 2026-08-14, title = '受保护的文章', summary = '用密码保护页面目录，构建后由 `tools/protect/seal.mjs` 加密，再用 `verify.mjs` 校验。' },

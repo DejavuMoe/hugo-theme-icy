@@ -283,6 +283,7 @@ These settings and parameters are documented with their feature.
 | `params.images`, `params.schema`, `params.verification` | [SEO](/docs/integrations/#seo) |
 | `enableRobotsTXT`, `params.robots` | [robots.txt](/docs/integrations/#robots) |
 | `params.rss` | [RSS](/docs/integrations/#rss) |
+| `params.wechat` | [WeChat Official Account](/docs/integrations/#wechat) |
 | `params.style` | [Accent color](/docs/customization/#accent) |
 | `params.colorScheme` | [Light and dark](/docs/customization/#color-scheme) |
 | `params.fonts` | [Fonts](/docs/customization/#fonts) |

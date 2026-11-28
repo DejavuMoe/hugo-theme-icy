@@ -184,6 +184,12 @@ ignoreLogs = ['icy-protected-unsealed']
   [params.footer]
     since = 2026
 
+  # WeChat export, in `hugo server` only: add #wechat to the address of a
+  # post. The published demo has none of it.
+  [params.wechat]
+    enable = true
+    baseURL = 'https://icy.zsh.moe/'
+
   # Comments on the demo's own Ecoku site; it allows https://icy.zsh.moe
   # and local previews on ports 1313/1314. A copy of this site needs its own
   # Ecoku site (or remove this block).

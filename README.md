@@ -15,6 +15,7 @@ English · [简体中文](https://github.com/DejavuMoe/hugo-theme-icy/blob/maste
 - Search, yearly archives, a tag index, friends and changelog pages.
 - Multilingual, with English and Simplified Chinese built in.
 - SEO, RSS, Ecoku comments and Plausible analytics.
+- Posts copied to the WeChat Official Account editor from the local preview, with their look.
 - No framework, no npm. Every page works without JavaScript and loads only what it uses.
 
 ## Quick start
@@ -56,3 +57,4 @@ Bundled third-party components:
 
 - Tabler Icons — MIT — [license](https://github.com/DejavuMoe/hugo-theme-icy/blob/master/assets/icons/tabler.LICENSE)
 - Pele, with one Lucide icon — MIT and ISC — [license](https://github.com/DejavuMoe/hugo-theme-icy/blob/master/assets/js/vendor/pele.LICENSE)
+- mp-darkmode — MIT — [license](https://github.com/DejavuMoe/hugo-theme-icy/blob/master/assets/js/vendor/darkmode.LICENSE)

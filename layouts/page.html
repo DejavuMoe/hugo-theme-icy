@@ -57,6 +57,12 @@
   {{- partial "comments.html" . }}
 </article>
 
+{{- /* WeChat export panel: local preview only, and only when the site asks
+     for it, so a published page gets neither the markup nor its assets. */}}
+{{- if and hugo.IsServer (site.Params.wechat | default dict).enable }}
+{{ partial "wechat.html" . }}
+{{- end }}
+
 {{- if $showToc }}
 {{- /* Narrow screens: floating button + bottom sheet. Hidden by CSS when the rail fits. */}}
 <button class="fab toc-fab" type="button" popovertarget="toc-sheet" aria-controls="toc-sheet">

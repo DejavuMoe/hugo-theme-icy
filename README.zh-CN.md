@@ -15,6 +15,7 @@
 - 站内搜索、按年归档、标签索引、友链和更新日志页面。
 - 多语言，自带英文和简体中文。
 - SEO、RSS、Ecoku 评论和 Plausible 统计。
+- 在本地预览里把文章连同样式复制到微信公众号编辑器。
 - 不用框架，不用 npm。每个页面不开 JavaScript 也能用，并且只加载用到的资源。
 
 ## 快速开始
@@ -56,3 +57,4 @@ hugo server
 
 - Tabler Icons — MIT — [许可证](https://github.com/DejavuMoe/hugo-theme-icy/blob/master/assets/icons/tabler.LICENSE)
 - Pele，含一个 Lucide 图标 — MIT 与 ISC — [许可证](https://github.com/DejavuMoe/hugo-theme-icy/blob/master/assets/js/vendor/pele.LICENSE)
+- mp-darkmode — MIT — [许可证](https://github.com/DejavuMoe/hugo-theme-icy/blob/master/assets/js/vendor/darkmode.LICENSE)

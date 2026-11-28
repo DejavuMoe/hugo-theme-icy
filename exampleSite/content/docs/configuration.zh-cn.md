@@ -283,6 +283,7 @@ Icy 无法使用的值会中断构建，错误信息会指出是哪一项。例�
 | `params.images`、`params.schema`、`params.verification` | [SEO](/docs/integrations/#seo) |
 | `enableRobotsTXT`、`params.robots` | [robots.txt](/docs/integrations/#robots) |
 | `params.rss` | [RSS](/docs/integrations/#rss) |
+| `params.wechat` | [微信公众号](/docs/integrations/#wechat) |
 | `params.style` | [强调色](/docs/customization/#accent) |
 | `params.colorScheme` | [浅色与深色](/docs/customization/#color-scheme) |
 | `params.fonts` | [字体](/docs/customization/#fonts) |
