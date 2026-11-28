@@ -64,7 +64,7 @@
   <li>
     <a class="friend" href="{{ $href }}" rel="external friend">
       {{- with $avatar }}
-      <img class="friend-avatar" src="{{ . }}" alt="" width="48" height="48" loading="lazy" decoding="async">
+      <img class="friend-avatar" src="{{ . }}" alt="" width="44" height="44" loading="lazy" decoding="async">
       {{- else }}
       <span class="friend-avatar friend-initial" aria-hidden="true">{{ substr $f.name 0 1 | upper }}</span>
       {{- end }}

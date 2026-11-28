@@ -123,7 +123,7 @@ The page body appears above the list. List the sites in the data file:
 | `name` | Yes | Site or person name. |
 | `url` | Yes | An `http` or `https` link. |
 | `avatar` | No | Image path or URL, like any [media path](/docs/media/#sources). |
-| `description` | No | Up to two lines. A string, or one text per language code. |
+| `description` | No | Shown when the pointer rests on the card; touch screens leave it out. A string, or one text per language code. |
 
 - Avatars are cropped to 96px. Remote avatars are downloaded at build time, so readers never contact the original host.
 - Without an avatar, or when the download fails, the entry shows the first letter of the name.

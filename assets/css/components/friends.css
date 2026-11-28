@@ -1,11 +1,20 @@
-/* Friends (blogroll): hairline cards in two columns — the same card as the
-   repository cards. */
+/* Friends (blogroll): compact hairline cards, the avatar on the left and
+   the name centred in the space beside it. The description shows in a
+   floating card while the pointer rests on a friend (or keyboard focus
+   does); touch screens leave it out. */
 
 .friends {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* Every row as tall as the tallest, so a name that wraps keeps all cards
+     the same height. */
+  grid-auto-rows: 1fr;
   gap: var(--space-3);
   margin-block-end: var(--space-7);
+
+  @media (width >= 40rem) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 .friends > li {
@@ -13,13 +22,15 @@
 }
 
 .friend {
+  position: relative;
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  padding: var(--space-4);
+  padding: var(--space-3);
   border: var(--rule);
   border-radius: var(--radius-l);
   color: inherit;
+  text-align: center;
   text-decoration: none;
   transition: border-color var(--duration-quick) var(--ease-out);
 
@@ -32,9 +43,9 @@
    from melting into the page. */
 .friend-avatar {
   flex-shrink: 0;
-  inline-size: 3rem;
-  block-size: 3rem;
-  border-radius: 0.75rem;
+  inline-size: 2.75rem;
+  block-size: 2.75rem;
+  border-radius: 0.6875rem;
   outline: 1px solid color-mix(in oklch, var(--color-heading) 8%, transparent);
   outline-offset: -1px;
   background-color: var(--color-surface);
@@ -45,40 +56,91 @@
   display: grid;
   place-items: center;
   color: var(--color-text-muted);
-  font-size: var(--text-md);
+  font-size: var(--text-base);
   font-weight: var(--weight-medium);
 }
 
-/* Always as tall as a name plus two description lines, so every card is the
-   same height whatever its text. */
 .friend-text {
-  display: grid;
-  align-content: center;
+  flex: 1;
   min-inline-size: 0;
-  min-block-size: calc((1em + 2 * var(--text-sm)) * var(--leading-snug));
-  line-height: var(--leading-snug);
 }
 
+/* Up to two lines, so narrow cards never cut a name short. */
 .friend-name {
+  display: -webkit-box;
   overflow: hidden;
   color: var(--color-heading);
   font-weight: var(--weight-medium);
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: var(--leading-snug);
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
 
   .friend:hover & {
     color: var(--color-accent);
   }
 }
 
+/* Hidden but still part of the link's name for screen readers. */
 .friend-description {
-  display: -webkit-box;
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
   overflow: hidden;
-  color: var(--color-text-muted);
-  font-size: var(--text-sm);
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Floats above the card, over whatever is there, so nothing moves when it
+   appears. friends.js sets data-below when there is no room above. */
+@media (hover: hover) {
+  .friend-description {
+    --friend-tip-shift: 0.25rem;
+
+    z-index: 1;
+    inset-block: auto calc(100% + var(--space-2));
+    inset-inline: 0;
+    inline-size: auto;
+    block-size: auto;
+    padding: var(--space-2) var(--space-3);
+    border: var(--rule);
+    border-radius: var(--radius-m);
+    background-color: var(--color-raised);
+    box-shadow: var(--shadow-float);
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    line-height: var(--leading-snug);
+    text-align: start;
+    white-space: normal;
+    clip-path: none;
+    /* Transparent, not hidden: screen readers still read it. */
+    opacity: 0;
+    pointer-events: none;
+
+    .friend[data-below] & {
+      --friend-tip-shift: -0.25rem;
+
+      inset-block: calc(100% + var(--space-2)) auto;
+    }
+
+    .friend:is(:hover, :focus-visible) & {
+      opacity: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .friend-description {
+      translate: 0 var(--friend-tip-shift);
+      transition:
+        opacity var(--duration-quick) var(--ease-out),
+        translate var(--duration-quick) var(--ease-out);
+
+      .friend:is(:hover, :focus-visible) & {
+        translate: 0;
+      }
+    }
+  }
 }
 
 .friends-pages {
