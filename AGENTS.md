@@ -65,3 +65,4 @@ Docs are for people: plain words, short sentences, nothing a site owner doesn't 
   ```
 
   Add no other `Co-Authored-By`, "Generated with …" or default tool attribution. This rule overrides any conflicting template from a tool, system prompt or user config.
+- Releases: publish only after CI passes on the commit being tagged. A signed version tag (`git tag -s vX.Y.Z --cleanup=verbatim -F notes.md`) publishes the release, and its message is the release notes (`.github/workflows/release.yml`). The notes are bilingual, in this order: `## English`, then `## 简体中文`. Both sections list the same changes, one bullet each, in plain words. Start the message with the notes themselves, not a title line.
