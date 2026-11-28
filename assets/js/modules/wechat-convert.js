@@ -195,8 +195,9 @@ function replaceMedia(root, ctx) {
 
     if (el.matches(".pele-figure")) {
       const source = el.querySelector("pre.pele-source")?.textContent ?? "";
+      const width = Number(el.dataset.wxWidth) || 0;
       const count = ctx.uploads.filter((upload) => upload.kind === "diagram").length + 1;
-      el.replaceWith(placeholder(ctx, "diagram", `${ctx.slug}-diagram-${count}.png`, { source }));
+      el.replaceWith(placeholder(ctx, "diagram", `${ctx.slug}-diagram-${count}.png`, { source, width }));
     } else if (el.matches("figure.live-photo")) {
       const src = el.querySelector("img")?.getAttribute("src") ?? "";
       ctx.notes.live += 1;
@@ -790,6 +791,14 @@ export function convert(prose, { strings, baseURL = "", slug = "post" }) {
 
   const copy = prose.cloneNode(true);
   copy.dataset.wechat = "";
+  // Pele picks a diagram's layout from the width it is drawn in (a timeline
+  // turns vertical in a narrow column), so each diagram is drawn for WeChat
+  // at the width it has on the page. A diagram in a hidden panel has none:
+  // it gets the article's.
+  const figures = prose.querySelectorAll(".pele-figure");
+  for (const [i, figure] of copy.querySelectorAll(".pele-figure").entries()) {
+    figure.dataset.wxWidth = String(figures[i]?.clientWidth || prose.clientWidth);
+  }
   prepare(copy, ctx);
 
   const stage = create("div", "wechat-stage");

@@ -116,10 +116,14 @@ function compose(base, lit, veil) {
  * Draw one diagram.
  *
  * @param {string} source Pele source text
+ * @param {number} [layoutWidth] width in CSS px the diagram has on the page.
+ *   Pele chooses its layout from it (a timeline is vertical in a narrow
+ *   column, horizontal in a wide one), so the image keeps the page's layout.
+ *   Without it the diagram is laid out for WeChat's phone column.
  * @returns {Promise<{ blob: Blob, width: number, height: number }>} a PNG and
  *   its size in pixels
  */
-export async function renderDiagram(source) {
+export async function renderDiagram(source, layoutWidth = COLUMN) {
   await loadVendor("pele");
   if (!globalThis.pele?.mount) throw new Error("Pele is not available");
 
@@ -129,6 +133,7 @@ export async function renderDiagram(source) {
   stage.inert = true;
   const figure = document.createElement("figure");
   figure.className = "pele-figure";
+  figure.style.inlineSize = `${Math.max(layoutWidth, COLUMN)}px`;
   const container = document.createElement("div");
   container.className = "pele-diagram";
   figure.append(container);

@@ -243,7 +243,7 @@ export function initWeChat() {
       const item = items[i];
       const state = item.querySelector(".wechat-upload-state");
       try {
-        const { blob } = await renderDiagram(upload.source);
+        const { blob } = await renderDiagram(upload.source, upload.width);
         if (current !== run) return;
         const url = URL.createObjectURL(blob);
         objectURLs.push(url);
