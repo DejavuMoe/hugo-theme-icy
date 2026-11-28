@@ -378,7 +378,13 @@ function rewriteLinks(root, ctx) {
   for (const [href, { n, title }] of references) {
     const item = create("p", "wx-reference");
     const short = title.length > 60 ? `${title.slice(0, 59)}…` : title;
-    item.append(create("span", "wx-reference-index", `[${n}]`), ` ${short}: `, create("span", "wx-reference-url", href));
+    item.append(
+      create("span", "wx-reference-index", `[${n}]`),
+      " ",
+      create("span", "wx-reference-title", `${short}:`),
+      " ",
+      create("span", "wx-reference-url", href),
+    );
     list.append(item);
   }
   root.append(list);

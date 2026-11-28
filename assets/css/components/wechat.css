@@ -318,6 +318,12 @@
     color: var(--color-accent);
   }
 
+  /* The link's text, a shade stronger than its address. */
+  & .wx-reference-title {
+    color: var(--color-text);
+    font-weight: var(--weight-medium);
+  }
+
   & .wx-reference-url {
     color: var(--color-text-faint);
     word-break: break-all;
